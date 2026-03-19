@@ -1,0 +1,683 @@
+2026-03-18 21:08:28,131 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:08:28,142 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=c4793be1-e6c4-47bb-930a-b64924485c6a
+2026-03-18 21:08:28,605 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=NR 18 (4).pdf pages=2 session=c4793be1-e6c4-47bb-930a-b64924485c6a
+2026-03-18 21:08:34,840 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:08:34,845 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=33695004-e4d0-4a31-8acd-2a829abc2773
+2026-03-18 21:08:34,871 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=NR 18 (4).pdf pages=2 session=33695004-e4d0-4a31-8acd-2a829abc2773
+2026-03-18 21:08:50,073 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:08:50,081 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=e392998f-018d-4a1e-821f-c1b03faff2a6
+2026-03-18 21:08:50,114 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=NR 18 (4).pdf pages=2 session=e392998f-018d-4a1e-821f-c1b03faff2a6
+2026-03-18 21:09:01,775 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:09:01,782 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=77acd608-fbe0-4e68-be88-5a978b6e5472
+2026-03-18 21:09:01,812 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=77acd608-fbe0-4e68-be88-5a978b6e5472
+2026-03-18 21:09:58,684 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:09:58,690 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=3428a013-0961-434c-81a4-91a1285316f9
+2026-03-18 21:09:58,803 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=3428a013-0961-434c-81a4-91a1285316f9
+2026-03-18 21:10:33,983 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:10:33,988 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=6250e953-8e36-4a45-8ca2-153b4471d95b
+2026-03-18 21:10:34,017 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=6250e953-8e36-4a45-8ca2-153b4471d95b
+2026-03-18 21:10:57,565 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:10:57,571 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=8117b47f-93fa-46ea-96c7-5b116b905a5b
+2026-03-18 21:10:57,595 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=8117b47f-93fa-46ea-96c7-5b116b905a5b
+2026-03-18 21:11:35,485 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:11:35,490 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=28b25f52-6d2a-405a-8658-6fbb49e5e083
+2026-03-18 21:11:35,516 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=28b25f52-6d2a-405a-8658-6fbb49e5e083
+2026-03-18 21:11:45,191 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:11:55,390 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-18 21:11:55,420 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=28b25f52-6d2a-405a-8658-6fbb49e5e083 page=0 blocks=9
+2026-03-18 21:11:56,578 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:11:56,584 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=d4a3abc7-bb1d-458c-a131-9e4111204abd
+2026-03-18 21:11:56,605 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=d4a3abc7-bb1d-458c-a131-9e4111204abd
+2026-03-18 21:12:01,454 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:12:07,285 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-18 21:12:07,288 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=d4a3abc7-bb1d-458c-a131-9e4111204abd page=0 blocks=9
+2026-03-18 21:12:08,437 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:12:08,446 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=ea3672fa-92a8-4147-bbd9-00fa80b24a51
+2026-03-18 21:12:08,467 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=ea3672fa-92a8-4147-bbd9-00fa80b24a51
+2026-03-18 21:14:34,758 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:14:34,798 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=dadf07cb-2683-4d46-afc6-44627d79affe
+2026-03-18 21:14:34,847 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=dadf07cb-2683-4d46-afc6-44627d79affe
+2026-03-18 21:15:07,037 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:15:07,043 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=2969c12d-2b23-457f-b476-169996035517
+2026-03-18 21:15:07,065 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=2969c12d-2b23-457f-b476-169996035517
+2026-03-18 21:15:08,437 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:15:16,622 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:15:16,628 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=9d8124d5-c9c3-4293-976b-a04595963676
+2026-03-18 21:15:16,658 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=9d8124d5-c9c3-4293-976b-a04595963676
+2026-03-18 21:15:18,225 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:15:30,421 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:15:35,743 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-18 21:15:35,759 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=9d8124d5-c9c3-4293-976b-a04595963676 page=0 blocks=9
+2026-03-18 21:15:56,097 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:15:59,507 [INFO] EVENT=ERASE_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=9d8124d5-c9c3-4293-976b-a04595963676 page=0
+2026-03-18 21:16:00,623 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:18:19,556 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:18:19,586 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=539ff950-1230-4d0c-b914-badcd3468db4
+2026-03-18 21:18:19,731 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=539ff950-1230-4d0c-b914-badcd3468db4
+2026-03-18 21:18:21,289 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:18:27,229 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:18:27,338 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=539ff950-1230-4d0c-b914-badcd3468db4 page=0 blocks=60
+2026-03-18 21:18:47,260 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:18:49,136 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=539ff950-1230-4d0c-b914-badcd3468db4 edits=1
+2026-03-18 21:18:50,250 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:19:03,267 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:19:04,596 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=539ff950-1230-4d0c-b914-badcd3468db4 edits=1
+2026-03-18 21:19:05,790 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:19:21,457 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:19:23,637 [INFO] EVENT=ERASE_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=539ff950-1230-4d0c-b914-badcd3468db4 page=0
+2026-03-18 21:19:24,763 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:19:52,041 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:19:52,207 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=2d1abe4a-daa0-424a-a32b-e0d3c43dfa69
+2026-03-18 21:19:52,451 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=2d1abe4a-daa0-424a-a32b-e0d3c43dfa69
+2026-03-18 21:19:54,460 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:22:10,084 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:22:10,090 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=82d74348-9e42-4c6c-a36b-e20d636691e0
+2026-03-18 21:22:10,366 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=82d74348-9e42-4c6c-a36b-e20d636691e0
+2026-03-18 21:22:12,321 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:22:17,453 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:22:17,464 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=2176baa0-1112-4114-a4eb-50d6f1c88794
+2026-03-18 21:22:17,495 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=2176baa0-1112-4114-a4eb-50d6f1c88794
+2026-03-18 21:22:18,940 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:24:13,589 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:24:13,788 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=ac107974-a56b-4134-a209-063063bec6f2
+2026-03-18 21:24:15,470 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=ac107974-a56b-4134-a209-063063bec6f2
+2026-03-18 21:24:20,123 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:30:43,490 [INFO] HTTPS nao obrigatorio (desenvolvimento)
+2026-03-18 21:30:52,603 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:30:52,619 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=00768857-3cd0-477e-b1f1-61aaad50887e
+2026-03-18 21:30:53,720 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=00768857-3cd0-477e-b1f1-61aaad50887e
+2026-03-18 21:30:59,879 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:31:38,362 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:31:38,371 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=806b43b0-557d-4323-b8fa-3ef7eed132ae
+2026-03-18 21:31:38,488 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=806b43b0-557d-4323-b8fa-3ef7eed132ae
+2026-03-18 21:31:40,065 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:33:25,676 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:33:25,695 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=63bebca6-489d-40eb-81b6-22627bc23069
+2026-03-18 21:33:25,851 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=63bebca6-489d-40eb-81b6-22627bc23069
+2026-03-18 21:38:40,287 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:38:40,307 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=ca51329d-8ae4-41e4-9832-964b234630f6
+2026-03-18 21:38:40,478 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=ca51329d-8ae4-41e4-9832-964b234630f6
+2026-03-18 21:39:28,006 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:39:28,012 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=a9931c39-8efb-4ee1-81d0-5ba65c654d4a
+2026-03-18 21:39:28,042 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=a9931c39-8efb-4ee1-81d0-5ba65c654d4a
+2026-03-18 21:40:33,756 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:40:33,770 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=54d22530-6e88-4c74-8d06-3b46d4baa1df
+2026-03-18 21:40:33,810 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=54d22530-6e88-4c74-8d06-3b46d4baa1df
+2026-03-18 21:40:40,560 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:40:40,910 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=142bec1e-850e-40d6-91db-3ead12c6faef
+2026-03-18 21:40:41,242 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=142bec1e-850e-40d6-91db-3ead12c6faef
+2026-03-18 21:41:27,457 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:41:27,472 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=8f4f5551-a5b8-4d92-9e19-32943c8d9cf8
+2026-03-18 21:41:27,506 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=8f4f5551-a5b8-4d92-9e19-32943c8d9cf8
+2026-03-18 21:42:44,434 [INFO] HTTPS nao obrigatorio (desenvolvimento)
+2026-03-18 21:42:58,053 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:42:58,215 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=48281728-4063-4d26-95be-014d40d3174b
+2026-03-18 21:43:02,117 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=48281728-4063-4d26-95be-014d40d3174b
+2026-03-18 21:43:06,276 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:06,352 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=1eef3dd3-76b4-4a80-87dd-6dffe106acca
+2026-03-18 21:43:06,762 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=1eef3dd3-76b4-4a80-87dd-6dffe106acca
+2026-03-18 21:43:11,464 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:15,343 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:15,363 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=93d2b8b4-0e89-4696-b842-d80e58b17a51
+2026-03-18 21:43:15,418 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=93d2b8b4-0e89-4696-b842-d80e58b17a51
+2026-03-18 21:43:17,036 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:24,479 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:24,484 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=fbe1acf5-7ee5-40cf-8457-d35d0ea3830b
+2026-03-18 21:43:24,513 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=fbe1acf5-7ee5-40cf-8457-d35d0ea3830b
+2026-03-18 21:43:26,058 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:33,469 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:33,564 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=fbe1acf5-7ee5-40cf-8457-d35d0ea3830b page=0 blocks=60
+2026-03-18 21:43:34,706 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:36,202 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:37,674 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:39,223 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:40,775 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:42,240 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:43,896 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:45,213 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:46,565 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:48,500 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:51,279 [INFO] EVENT=ERASE_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=fbe1acf5-7ee5-40cf-8457-d35d0ea3830b page=0
+2026-03-18 21:43:52,334 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:54,024 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:43:55,451 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:06,548 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:08,044 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:09,487 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:12,500 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:13,990 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:15,322 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:16,684 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:18,154 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=fbe1acf5-7ee5-40cf-8457-d35d0ea3830b edits=1
+2026-03-18 21:44:19,287 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:20,649 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:23,966 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:25,501 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:26,895 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:28,280 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:29,870 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:31,712 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:33,085 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=fbe1acf5-7ee5-40cf-8457-d35d0ea3830b edits=1
+2026-03-18 21:44:34,461 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:35,871 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:37,234 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:47,364 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:44:47,370 [INFO] EVENT=DOWNLOAD USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=fbe1acf5-7ee5-40cf-8457-d35d0ea3830b
+2026-03-18 21:45:09,918 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:45:09,925 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=e482aada-5c0c-409d-bc8b-d87d8bd82433
+2026-03-18 21:45:09,970 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=e482aada-5c0c-409d-bc8b-d87d8bd82433
+2026-03-18 21:45:11,993 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:45:46,429 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:45:46,438 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=09ecb8ac-d73f-4b22-b567-18ea5a515456
+2026-03-18 21:45:46,467 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=09ecb8ac-d73f-4b22-b567-18ea5a515456
+2026-03-18 21:45:47,932 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:45:47,934 [ERROR] [ERRO] EVENT=SESSION_UNAUTHORIZED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=09ecb8ac-d73f-4b22-b567-18ea5a515456 owner=4362a406-6fe1-43a8-9b1a-f216fb35fef8
+2026-03-18 21:48:23,643 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:48:23,684 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=d48adb54-06aa-4a7b-91bc-313035316447
+2026-03-18 21:48:23,936 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=d48adb54-06aa-4a7b-91bc-313035316447
+2026-03-18 21:48:25,902 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:48:59,054 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:48:59,136 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=14c39a0e-b753-4f7c-a35f-a78aff5de824
+2026-03-18 21:48:59,279 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=14c39a0e-b753-4f7c-a35f-a78aff5de824
+2026-03-18 21:49:03,070 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:49:16,461 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:49:16,468 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=392dad11-3314-40df-9ed4-1a775e3449ea
+2026-03-18 21:49:16,497 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=392dad11-3314-40df-9ed4-1a775e3449ea
+2026-03-18 21:49:32,147 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:49:32,156 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=aeab8232-69a7-4b0d-923a-b7c4351d5dd4
+2026-03-18 21:49:32,184 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=aeab8232-69a7-4b0d-923a-b7c4351d5dd4
+2026-03-18 21:49:33,665 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:51:13,370 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:51:13,377 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=7e5cbeeb-7789-452d-ab16-358c66b97713
+2026-03-18 21:51:13,401 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=7e5cbeeb-7789-452d-ab16-358c66b97713
+2026-03-18 21:51:14,815 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:51:20,990 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:51:22,364 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:51:40,659 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-18 21:51:40,683 [INFO] EVENT=EXTRACT_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 session=7e5cbeeb-7789-452d-ab16-358c66b97713 page=0 blocks=9
+2026-03-18 21:51:41,870 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:30,353 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:30,360 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=b07dc1ba-1b39-4c69-a9bf-9dfff75e9930
+2026-03-18 21:52:30,474 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=b07dc1ba-1b39-4c69-a9bf-9dfff75e9930
+2026-03-18 21:52:31,837 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:36,571 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:36,651 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=b07dc1ba-1b39-4c69-a9bf-9dfff75e9930 page=0 blocks=60
+2026-03-18 21:52:37,783 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:39,103 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:43,014 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:45,656 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:47,205 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:48,727 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:50,281 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:51,869 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:53,387 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:54,904 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:56,456 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:52:59,563 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:01,814 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:04,675 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:07,414 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:09,081 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:10,942 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:12,451 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:14,781 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:14,791 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=bb25f552-5807-42de-9a12-9239b766b3d2
+2026-03-18 21:53:14,829 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=bb25f552-5807-42de-9a12-9239b766b3d2
+2026-03-18 21:53:17,099 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:45,243 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:45,250 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=9b62657d-8293-4e64-a351-65cf5afc36fc
+2026-03-18 21:53:45,369 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=9b62657d-8293-4e64-a351-65cf5afc36fc
+2026-03-18 21:53:46,782 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:51,309 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:51,432 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=9b62657d-8293-4e64-a351-65cf5afc36fc page=0 blocks=60
+2026-03-18 21:53:52,663 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:54,225 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:55,928 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:57,699 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:53:59,289 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:00,949 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:08,597 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:12,078 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:17,013 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:21,704 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:23,671 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:27,337 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:29,253 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:32,121 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:33,831 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:35,524 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:38,007 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:54:38,018 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=7e8e0d28-bfbf-4a2c-acd9-9856c863cfea
+2026-03-18 21:54:38,046 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=7e8e0d28-bfbf-4a2c-acd9-9856c863cfea
+2026-03-18 21:54:39,491 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:06,521 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:06,527 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=30e82c93-3ff3-44f6-9af9-4461b60d94c9
+2026-03-18 21:56:06,556 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=30e82c93-3ff3-44f6-9af9-4461b60d94c9
+2026-03-18 21:56:07,941 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:13,649 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:13,778 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=30e82c93-3ff3-44f6-9af9-4461b60d94c9 page=0 blocks=60
+2026-03-18 21:56:14,905 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:16,967 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:18,621 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:20,794 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:22,269 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:23,938 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:25,571 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:27,156 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:28,688 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:30,198 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:31,704 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:36,658 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:38,169 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:39,906 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:41,329 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:43,831 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:46,769 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:48,474 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:50,123 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:51,959 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:53,643 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:55,358 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:57,080 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:56:58,658 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:00,626 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:02,249 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:03,947 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:05,440 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:07,198 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:08,849 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:10,749 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:12,535 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:16,109 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:17,838 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:19,948 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:21,454 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:23,146 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:24,627 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:26,352 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:27,822 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:29,287 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:30,717 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:32,282 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:34,474 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:36,643 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:38,292 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:40,896 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:42,923 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:42,929 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=0839e079-60ce-49e7-9ba6-b0e0a5689266
+2026-03-18 21:57:43,054 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=0839e079-60ce-49e7-9ba6-b0e0a5689266
+2026-03-18 21:57:53,898 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:53,912 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=db6f2e1a-2e69-4b5a-abc4-d32989e069b0
+2026-03-18 21:57:53,945 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=db6f2e1a-2e69-4b5a-abc4-d32989e069b0
+2026-03-18 21:57:55,647 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:57:59,565 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:01,284 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:02,777 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:04,138 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:05,434 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:05,563 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=db6f2e1a-2e69-4b5a-abc4-d32989e069b0 page=0 blocks=60
+2026-03-18 21:58:06,641 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:08,334 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:10,067 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:11,591 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:13,316 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:14,781 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:17,839 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:19,937 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:22,223 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:24,614 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:27,494 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:31,487 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:35,312 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:37,397 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:39,519 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:41,151 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 21:58:43,163 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:23,675 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:23,682 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=c7b7bb9e-3d05-46a5-9dc6-094cadf3c9d0
+2026-03-18 22:00:23,753 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=c7b7bb9e-3d05-46a5-9dc6-094cadf3c9d0
+2026-03-18 22:00:25,672 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:30,642 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:30,765 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=c7b7bb9e-3d05-46a5-9dc6-094cadf3c9d0 page=0 blocks=60
+2026-03-18 22:00:31,895 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:33,477 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:35,795 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:37,603 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:39,582 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:41,143 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:42,798 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:44,346 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:45,983 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:47,535 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:48,873 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:50,158 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:51,465 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:52,982 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:54,487 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:55,884 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:57,339 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:00:58,911 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:00,411 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:01,841 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:03,203 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:05,696 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:07,023 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:08,433 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:09,784 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:11,099 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:12,674 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:14,259 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:15,811 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:17,177 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:18,488 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:19,755 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:21,039 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:22,380 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:27,423 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:30,897 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:32,490 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:34,133 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:35,510 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:36,957 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:39,149 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:40,624 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:42,124 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:43,762 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:45,317 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:47,220 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:48,712 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:50,311 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:51,821 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:53,233 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:54,641 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:56,124 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:57,598 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:01:59,112 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:00,640 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:02,271 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:03,671 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:05,087 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:06,603 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:08,088 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:09,518 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:11,270 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:12,692 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:14,170 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:15,785 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:17,323 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:18,947 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:20,349 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:21,815 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:23,270 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:24,896 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:26,927 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:28,742 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:30,675 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:32,188 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:33,838 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:35,251 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:37,208 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:39,612 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=c7b7bb9e-3d05-46a5-9dc6-094cadf3c9d0 edits=1
+2026-03-18 22:02:41,198 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:41,207 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=cfe40d54-26be-47c8-8e39-00a8f990c507
+2026-03-18 22:02:41,293 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=cfe40d54-26be-47c8-8e39-00a8f990c507
+2026-03-18 22:02:42,846 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:42,855 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94
+2026-03-18 22:02:43,067 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94
+2026-03-18 22:02:44,650 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:51,205 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:51,339 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94 page=0 blocks=60
+2026-03-18 22:02:52,576 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:54,082 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:55,513 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:57,054 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:58,421 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:02:59,718 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:01,194 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:02,877 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94 edits=1
+2026-03-18 22:03:04,070 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:05,410 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:08,125 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:09,578 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:10,993 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:12,401 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:14,121 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:15,459 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:20,142 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:21,976 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94 edits=1
+2026-03-18 22:03:23,178 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:24,566 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:25,953 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:30,583 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:32,136 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:33,625 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:35,123 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:51,847 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:53,422 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:54,965 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:56,865 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:03:58,617 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:00,153 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:01,800 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:03,459 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:04,812 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:06,181 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:08,170 [INFO] EVENT=ERASE_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94 page=0
+2026-03-18 22:04:09,297 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:10,741 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:14,290 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:15,877 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:17,283 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:21,166 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:22,612 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:23,939 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94 edits=1
+2026-03-18 22:04:25,021 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:26,353 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:27,754 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:29,953 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:31,640 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:33,457 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:35,098 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:36,508 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:38,090 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:39,787 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:41,217 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:42,554 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:44,287 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:45,794 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:47,121 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:48,584 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:50,177 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:51,700 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:53,027 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:54,304 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:55,597 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:56,958 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:58,356 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:04:59,990 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:01,523 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:03,070 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:04,421 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:05,928 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:07,314 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:08,685 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:10,083 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:14,496 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:16,358 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:20,201 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:22,389 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:24,193 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:27,443 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:29,307 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:30,970 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:32,910 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:35,023 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:37,711 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:39,405 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:41,227 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:43,008 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:45,052 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:47,152 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:52,744 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:05:57,671 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:02,476 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:08,082 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:16,875 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:21,671 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=3ac9a2e2-79a9-46ed-b3dd-6aae78cbce94 edits=1
+2026-03-18 22:06:23,905 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:25,750 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:32,551 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:33,047 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=25533b5f-0c99-409c-9d05-4f366d17e77c
+2026-03-18 22:06:33,237 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=25533b5f-0c99-409c-9d05-4f366d17e77c
+2026-03-18 22:06:34,673 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:41,054 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:42,435 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:42,643 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=25533b5f-0c99-409c-9d05-4f366d17e77c page=0 blocks=60
+2026-03-18 22:06:43,889 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:45,756 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:47,111 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:48,580 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:50,541 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:52,260 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:53,738 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:55,083 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:56,406 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:57,743 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:06:59,076 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:07:00,588 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:07:02,169 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:07:07,009 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:07:12,489 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:07:17,981 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:07:20,651 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=25533b5f-0c99-409c-9d05-4f366d17e77c edits=1
+2026-03-18 22:07:22,246 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:07:23,998 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:08:02,024 [INFO] HTTPS nao obrigatorio (desenvolvimento)
+2026-03-18 22:08:12,689 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:08:12,694 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=cac21074-f8dd-4432-a02f-598d82f20e1a
+2026-03-18 22:08:13,085 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=cac21074-f8dd-4432-a02f-598d82f20e1a
+2026-03-18 22:08:19,927 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=cac21074-f8dd-4432-a02f-598d82f20e1a page=0 blocks=60
+2026-03-18 22:08:28,357 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=cac21074-f8dd-4432-a02f-598d82f20e1a edits=1
+2026-03-18 22:08:40,369 [INFO] EVENT=ERASE_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=cac21074-f8dd-4432-a02f-598d82f20e1a page=0
+2026-03-18 22:08:44,896 [INFO] EVENT=DOWNLOAD USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=cac21074-f8dd-4432-a02f-598d82f20e1a
+2026-03-18 22:09:07,222 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=ecaf74dd-896f-498d-a22c-5899298f0570
+2026-03-18 22:09:07,275 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=ecaf74dd-896f-498d-a22c-5899298f0570
+2026-03-18 22:16:12,158 [INFO] HTTPS nao obrigatorio (desenvolvimento)
+2026-03-18 22:16:14,932 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:16:14,963 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=af025afa-0822-4a23-91e7-db63631f23ab
+2026-03-18 22:16:16,137 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=af025afa-0822-4a23-91e7-db63631f23ab
+2026-03-18 22:20:52,497 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:20:52,527 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=8e315ccb-e417-4b6c-a689-37d74f458489
+2026-03-18 22:20:52,736 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=documento_editado (4).pdf pages=2 session=8e315ccb-e417-4b6c-a689-37d74f458489
+2026-03-18 22:21:05,613 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-18 22:21:05,637 [INFO] EVENT=EXTRACT_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 session=8e315ccb-e417-4b6c-a689-37d74f458489 page=0 blocks=9
+2026-03-18 22:21:26,687 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=c3dcc754-2d35-49c0-bdfc-06e1b936895c
+2026-03-18 22:21:26,759 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=NR 18 (4).pdf pages=2 session=c3dcc754-2d35-49c0-bdfc-06e1b936895c
+2026-03-18 22:21:32,574 [INFO] EVENT=EXTRACT_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 session=c3dcc754-2d35-49c0-bdfc-06e1b936895c page=0 blocks=60
+2026-03-18 22:21:44,451 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=34038d51-476f-454f-9291-5d1f2e8f5a00
+2026-03-18 22:21:44,481 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=NR 18 (4).pdf pages=2 session=34038d51-476f-454f-9291-5d1f2e8f5a00
+2026-03-18 22:21:51,136 [INFO] EVENT=EXTRACT_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 session=34038d51-476f-454f-9291-5d1f2e8f5a00 page=0 blocks=60
+2026-03-18 22:22:01,823 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 session=34038d51-476f-454f-9291-5d1f2e8f5a00 edits=1
+2026-03-18 22:22:15,078 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 session=34038d51-476f-454f-9291-5d1f2e8f5a00 edits=1
+2026-03-18 22:22:32,751 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 session=34038d51-476f-454f-9291-5d1f2e8f5a00 edits=1
+2026-03-18 22:22:42,735 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=13fbe7b3-2ac8-41f6-831e-e1a48dd2bdf0
+2026-03-18 22:22:42,796 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=NR 18 (4).pdf pages=2 session=13fbe7b3-2ac8-41f6-831e-e1a48dd2bdf0
+2026-03-18 22:24:50,858 [INFO] EVENT=SESSION_CREATED USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=- session=cb7882e6-110e-45bb-b1ec-9f1f49522ef5
+2026-03-18 22:24:50,965 [INFO] EVENT=UPLOAD_SUCCESS USER=4362a406-6fe1-43a8-9b1a-f216fb35fef8 IP=127.0.0.1 file=NR 18 (4).pdf pages=2 session=cb7882e6-110e-45bb-b1ec-9f1f49522ef5
+2026-03-18 22:25:28,511 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:25:28,517 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=7ac0f61b-fb1b-4573-868c-3bd7660d90c7
+2026-03-18 22:25:28,545 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=7ac0f61b-fb1b-4573-868c-3bd7660d90c7
+2026-03-18 22:25:32,564 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=7ac0f61b-fb1b-4573-868c-3bd7660d90c7 page=0 blocks=60
+2026-03-18 22:25:40,735 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=7ac0f61b-fb1b-4573-868c-3bd7660d90c7 edits=1
+2026-03-18 22:25:48,200 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=5ac8c989-96df-495a-8919-2e921c9ed377
+2026-03-18 22:25:48,230 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=5ac8c989-96df-495a-8919-2e921c9ed377
+2026-03-18 22:25:55,833 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=2b3f2356-37ea-42b5-8f6c-f612294021ee
+2026-03-18 22:25:55,875 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=2b3f2356-37ea-42b5-8f6c-f612294021ee
+2026-03-18 22:26:13,194 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=ac956458-2ac9-4c94-9a1b-f24acc99e67f
+2026-03-18 22:26:13,222 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=ac956458-2ac9-4c94-9a1b-f24acc99e67f
+2026-03-18 22:27:23,542 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=49eb3d75-c406-44d9-9de6-67c75cd6ebe1
+2026-03-18 22:27:23,656 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=49eb3d75-c406-44d9-9de6-67c75cd6ebe1
+2026-03-18 22:28:20,910 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=2da8f93d-09eb-49cf-be8c-55b02e4db4c0
+2026-03-18 22:28:20,968 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=2da8f93d-09eb-49cf-be8c-55b02e4db4c0
+2026-03-18 22:30:15,592 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=7bac42d4-40de-439e-91b8-02465452d977
+2026-03-18 22:30:15,659 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=7bac42d4-40de-439e-91b8-02465452d977
+2026-03-18 22:30:21,436 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=7bac42d4-40de-439e-91b8-02465452d977 page=0 blocks=60
+2026-03-18 22:30:33,828 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=7bac42d4-40de-439e-91b8-02465452d977 edits=1
+2026-03-18 22:30:41,076 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=0fa77186-212d-48d3-b6d2-3814ef16fa4f
+2026-03-18 22:30:41,134 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=0fa77186-212d-48d3-b6d2-3814ef16fa4f
+2026-03-18 22:31:15,047 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=0fa77186-212d-48d3-b6d2-3814ef16fa4f page=0 blocks=60
+2026-03-18 22:31:26,829 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=0fa77186-212d-48d3-b6d2-3814ef16fa4f edits=1
+2026-03-18 22:31:42,694 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=95aadacd-c1e2-4003-b70b-468fa2c0c36f
+2026-03-18 22:31:42,749 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=95aadacd-c1e2-4003-b70b-468fa2c0c36f
+2026-03-18 22:35:06,840 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=5026d073-2e74-430e-9655-6a3465f3dbde
+2026-03-18 22:35:06,921 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=5026d073-2e74-430e-9655-6a3465f3dbde
+2026-03-18 22:35:16,274 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=13bb1e5f-d082-49a7-bd3e-077efd4fcbc1
+2026-03-18 22:35:16,313 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=13bb1e5f-d082-49a7-bd3e-077efd4fcbc1
+2026-03-18 22:35:52,305 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:35:52,321 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=792b5f86-422e-484d-9083-b34f02c433b4
+2026-03-18 22:35:52,354 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=792b5f86-422e-484d-9083-b34f02c433b4
+2026-03-18 22:35:56,387 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4
+2026-03-18 22:36:00,269 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4 page=0 blocks=60
+2026-03-18 22:36:12,484 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4 edits=1
+2026-03-18 22:36:18,329 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4
+2026-03-18 22:36:34,187 [INFO] EVENT=OCR_EXTRACT USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4 page=0
+2026-03-18 22:36:40,429 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-18 22:36:40,486 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4 page=0 blocks=9
+2026-03-18 22:37:05,142 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4 edits=1
+2026-03-18 22:37:20,809 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4
+2026-03-18 22:37:27,824 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=792b5f86-422e-484d-9083-b34f02c433b4
+2026-03-18 22:37:48,371 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=2cff478b-80cf-4b60-9963-962ee7ba9485
+2026-03-18 22:37:48,406 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=2cff478b-80cf-4b60-9963-962ee7ba9485
+2026-03-18 22:37:52,581 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=2cff478b-80cf-4b60-9963-962ee7ba9485 page=0 blocks=60
+2026-03-18 22:38:04,273 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=2cff478b-80cf-4b60-9963-962ee7ba9485 edits=1
+2026-03-18 22:38:14,494 [INFO] EVENT=ERASE_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=2cff478b-80cf-4b60-9963-962ee7ba9485 page=0
+2026-03-18 22:38:31,722 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=2cff478b-80cf-4b60-9963-962ee7ba9485 edits=1
+2026-03-18 22:38:41,281 [INFO] EVENT=DOWNLOAD USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=2cff478b-80cf-4b60-9963-962ee7ba9485
+2026-03-18 22:39:02,672 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=2cff478b-80cf-4b60-9963-962ee7ba9485
+2026-03-18 22:40:02,333 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc
+2026-03-18 22:40:44,189 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=infografico-fluxo-de-caixa-ferramenta-1.pdf pages=1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc
+2026-03-18 22:40:57,622 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc page=0 blocks=69
+2026-03-18 22:41:36,236 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc edits=1
+2026-03-18 22:41:51,880 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc
+2026-03-18 22:42:29,837 [INFO] EVENT=OCR_EXTRACT USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc page=0
+2026-03-18 22:42:40,008 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-18 22:42:40,036 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc page=0 blocks=19
+2026-03-18 22:43:45,488 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc edits=1
+2026-03-18 22:45:06,091 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc
+2026-03-18 22:49:22,506 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:49:22,521 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=5baa996d-55ff-495d-b3a2-54aa9f5aa8dc
+2026-03-18 22:49:37,966 [INFO] HTTPS nao obrigatorio (desenvolvimento)
+2026-03-18 22:49:43,805 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-18 22:49:47,888 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=75a069c3-7dd4-4c3e-b917-e13352596af3
+2026-03-18 22:49:48,274 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=infografico-fluxo-de-caixa-ferramenta-1.pdf pages=1 session=75a069c3-7dd4-4c3e-b917-e13352596af3
+2026-03-18 22:50:04,761 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=75a069c3-7dd4-4c3e-b917-e13352596af3 page=0 blocks=69
+2026-03-18 22:50:53,166 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=75a069c3-7dd4-4c3e-b917-e13352596af3 edits=1
+2026-03-18 22:51:57,542 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=75a069c3-7dd4-4c3e-b917-e13352596af3 edits=1
+2026-03-18 22:57:26,920 [INFO] EVENT=SESSION_REUSED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=75a069c3-7dd4-4c3e-b917-e13352596af3
+2026-03-19 10:14:58,766 [INFO] HTTPS nao obrigatorio (desenvolvimento)
+2026-03-19 10:15:09,998 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-19 10:15:11,500 [INFO] HTTP Request: POST https://api.mercadopago.com/preapproval "HTTP/1.1 400 Bad Request"
+2026-03-19 10:15:11,501 [ERROR] [ERRO] EVENT=MP_CREATE_SUB_ERROR USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 {"message":"Invalid value for back_url, must be a valid URL","status":400}
+2026-03-19 10:15:23,561 [INFO] HTTP Request: POST https://api.mercadopago.com/preapproval "HTTP/1.1 400 Bad Request"
+2026-03-19 10:15:23,570 [ERROR] [ERRO] EVENT=MP_CREATE_SUB_ERROR USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 {"message":"Invalid value for back_url, must be a valid URL","status":400}
+2026-03-19 10:15:40,401 [INFO] HTTP Request: POST https://api.mercadopago.com/preapproval "HTTP/1.1 400 Bad Request"
+2026-03-19 10:15:40,403 [ERROR] [ERRO] EVENT=MP_CREATE_SUB_ERROR USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 {"message":"Invalid value for back_url, must be a valid URL","status":400}
+2026-03-19 10:15:58,668 [INFO] HTTP Request: POST https://api.mercadopago.com/preapproval "HTTP/1.1 400 Bad Request"
+2026-03-19 10:15:58,670 [ERROR] [ERRO] EVENT=MP_CREATE_SUB_ERROR USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 {"message":"Invalid value for back_url, must be a valid URL","status":400}
+2026-03-19 10:16:05,891 [INFO] HTTP Request: POST https://api.mercadopago.com/preapproval "HTTP/1.1 400 Bad Request"
+2026-03-19 10:16:05,893 [ERROR] [ERRO] EVENT=MP_CREATE_SUB_ERROR USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 {"message":"Invalid value for back_url, must be a valid URL","status":400}
+2026-03-19 10:18:23,794 [INFO] HTTPS nao obrigatorio (desenvolvimento)
+2026-03-19 10:19:00,405 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-19 10:19:02,008 [INFO] HTTP Request: POST https://api.mercadopago.com/preapproval "HTTP/1.1 400 Bad Request"
+2026-03-19 10:19:02,010 [ERROR] [ERRO] EVENT=MP_CREATE_SUB_ERROR USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 {"message":"back_url is required","status":400}
+2026-03-19 10:33:20,622 [INFO] HTTP Request: GET https://lpeesshsrjgfuwxslzyp.supabase.co/auth/v1/user "HTTP/1.1 200 OK"
+2026-03-19 10:33:20,651 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=6f738b97-b442-42fb-afd4-c072b45d0c37
+2026-03-19 10:33:22,574 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=documento_editado (6).pdf pages=2 session=6f738b97-b442-42fb-afd4-c072b45d0c37
+2026-03-19 10:33:37,075 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-19 10:33:37,165 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=6f738b97-b442-42fb-afd4-c072b45d0c37 page=0 blocks=8
+2026-03-19 10:34:09,086 [INFO] EVENT=SESSION_CREATED USER=bcca871e-552f-4580-8e57-f536565d74ef IP=- session=f4e8511f-f457-4344-aacf-2abf5a607fcd
+2026-03-19 10:34:09,124 [INFO] EVENT=UPLOAD_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 file=NR 18 (6).pdf pages=2 session=f4e8511f-f457-4344-aacf-2abf5a607fcd
+2026-03-19 10:34:12,173 [INFO] EVENT=EXTRACT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=f4e8511f-f457-4344-aacf-2abf5a607fcd page=0 blocks=60
+2026-03-19 10:34:23,559 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=f4e8511f-f457-4344-aacf-2abf5a607fcd edits=1
+2026-03-19 10:34:43,812 [INFO] EVENT=SAVE_TEXT_SUCCESS USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=f4e8511f-f457-4344-aacf-2abf5a607fcd edits=1
+2026-03-19 10:34:48,899 [INFO] EVENT=DOWNLOAD USER=bcca871e-552f-4580-8e57-f536565d74ef IP=127.0.0.1 session=f4e8511f-f457-4344-aacf-2abf5a607fcd
