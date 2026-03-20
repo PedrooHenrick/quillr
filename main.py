@@ -25,7 +25,6 @@ if sys.platform == "win32":
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Request, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel
@@ -59,13 +58,16 @@ def log_error(event: str, user_id: str = "-", ip: str = "-", details: str = ""):
 # ── App ────────────────────────────────────────────────────────────────────
 app = FastAPI(title="Quillr PDF API")
 
-# ── HTTPS obrigatório em produção ──────────────────────────────────────────
+# ── Detecta ambiente ───────────────────────────────────────────────────────
 IS_PRODUCTION = os.environ.get("ENVIRONMENT", "development") == "production"
+
+# NOTA: HTTPSRedirectMiddleware foi REMOVIDO propositalmente.
+# O Railway gerencia HTTPS via proxy externo (TLS termination).
+# Manter esse middleware causaria loop infinito de redirecionamento.
 if IS_PRODUCTION:
-    app.add_middleware(HTTPSRedirectMiddleware)
-    logger.info("HTTPS obrigatorio ativado (producao)")
+    logger.info("Ambiente de producao detectado (Railway)")
 else:
-    logger.info("HTTPS nao obrigatorio (desenvolvimento)")
+    logger.info("Ambiente de desenvolvimento")
 
 # ── Headers de segurança HTTP ──────────────────────────────────────────────
 @app.middleware("http")
@@ -723,8 +725,6 @@ async def create_subscription(
             "Content-Type": "application/json",
         }
 
-        # back_url precisa ser URL publica em producao
-        # Em desenvolvimento usa URL do ngrok ou deixa sem
         back_url = FRONTEND_URL + "/payment/success"
         is_local = "localhost" in FRONTEND_URL or "127.0.0.1" in FRONTEND_URL
 
@@ -740,7 +740,6 @@ async def create_subscription(
             "external_reference": user_id,
         }
 
-        # So adiciona back_url e notification_url se for URL publica
         if not is_local:
             payload["back_url"] = back_url
             payload["notification_url"] = FRONTEND_URL.rstrip("/") + "/webhook/mp"
@@ -789,7 +788,6 @@ async def webhook_mercadopago(request: Request):
         import httpx
         headers = {"Authorization": f"Bearer {MP_ACCESS_TOKEN}"}
 
-        # Busca detalhes da assinatura
         if topic in ("subscription_preapproval", "preapproval"):
             res = httpx.get(
                 f"https://api.mercadopago.com/preapproval/{resource_id}",
@@ -805,7 +803,6 @@ async def webhook_mercadopago(request: Request):
             if not user_id:
                 return {"ok": True}
 
-            # Atualiza plano no Supabase
             import httpx as hx
             new_plan = "pro" if status == "authorized" else "free"
 
