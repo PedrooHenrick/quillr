@@ -639,46 +639,13 @@ async def save_text_edits(
             raise HTTPException(400, "Muitas edições por vez. Máximo: 500.")
 
         sys.path.insert(0, str(Path(__file__).parent))
-        from core.inpainting_engine import (
-            pdf_all_pages_to_images, remove_content_inpaint,
-            smart_replace_text, image_to_pdf)
+        from core.inpainting_engine import save_text_edits_native
 
-        import fitz
-        dpi = 200
-        all_imgs = pdf_all_pages_to_images(str(pdf_path), dpi=dpi)
-
-        doc = fitz.open(str(pdf_path))
-        by_page = {}
-        for e in edits_list:
-            by_page.setdefault(e["page"], []).append(e)
-
-        for page_idx, page_edits in by_page.items():
-            img = all_imgs[page_idx].copy()
-            ih, iw = img.shape[:2]
-            pg = doc[page_idx]
-            pw, ph = pg.rect.width, pg.rect.height
-            sx, sy = iw / pw, ih / ph
-
-            for edit in page_edits:
-                x1 = max(0,  int(edit["x0"] * sx))
-                y1 = max(0,  int(edit["y0"] * sy))
-                x2 = min(iw, int(edit["x1"] * sx))
-                y2 = min(ih, int(edit["y1"] * sy))
-                img = remove_content_inpaint(img, x1, y1, x2, y2,
-                                             threshold=80, full_area=False, radius=5)
-                r, g, b = edit.get("color_rgb", [0, 0, 0])
-                img = smart_replace_text(
-                    img, edit["new_text"], x1, y1, x2, y2,
-                    original_text=edit["original_text"],
-                    fontname_hint=edit.get("font_name", "arial"),
-                    font_size_hint=max(8, int((y2 - y1) * 0.80)),
-                    color_bgr=(int(b*255), int(g*255), int(r*255)),
-                    align=edit.get("align", "left"))
-            all_imgs[page_idx] = img
-
-        doc.close()
         tmp = str(pdf_path) + ".tmp"
-        image_to_pdf(all_imgs, tmp, dpi=dpi)
+
+        # Substitui texto diretamente no PDF vetorial (não converte para imagem)
+        # O PDF continua editável após salvar
+        save_text_edits_native(str(pdf_path), edits_list, tmp)
         os.replace(tmp, str(pdf_path))
 
         save_pdf_and_cleanup(user_id, session_id, pdf_path)

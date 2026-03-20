@@ -73,6 +73,64 @@ def image_to_pdf(images: list, output_path: str,
     return output_path
 
 
+# ── Substituição nativa de texto (preserva PDF vetorial) ──────────────────
+
+def save_text_edits_native(pdf_path: str, edits: list, output_path: str):
+    """
+    Substitui texto diretamente no PDF usando PyMuPDF.
+    Preserva o PDF vetorial — NÃO converte para imagem.
+    O PDF continua editável após salvar.
+
+    edits: lista de dicts com:
+      - page (int)
+      - x0, y0, x1, y1 (float — coordenadas em pontos PDF)
+      - new_text (str)
+      - font_name (str)
+      - font_size (float)
+      - color_rgb (list [r, g, b] de 0.0 a 1.0)
+      - align (str: "left" | "center" | "right")
+    """
+    import fitz
+
+    doc = fitz.open(pdf_path)
+
+    by_page = {}
+    for e in edits:
+        by_page.setdefault(e["page"], []).append(e)
+
+    for page_idx, page_edits in by_page.items():
+        page = doc[page_idx]
+
+        for edit in page_edits:
+            x0 = edit["x0"]
+            y0 = edit["y0"]
+            x1 = edit["x1"]
+            y1 = edit["y1"]
+            new_text  = edit["new_text"]
+            r, g, b   = edit.get("color_rgb", [0.0, 0.0, 0.0])
+            font_size = float(edit.get("font_size", 12.0))
+            align_str = edit.get("align", "left")
+            align_map = {"left": 0, "center": 1, "right": 2}
+            align     = align_map.get(align_str, 0)
+
+            rect = fitz.Rect(x0, y0, x1, y1)
+
+            # 1. Apaga o texto original com retângulo branco
+            page.draw_rect(rect, color=(1, 1, 1), fill=(1, 1, 1))
+
+            # 2. Insere o novo texto vetorial na mesma área
+            page.insert_textbox(
+                rect,
+                new_text,
+                fontsize=font_size,
+                color=(r, g, b),
+                align=align,
+            )
+
+    doc.save(output_path, garbage=4, deflate=True)
+    doc.close()
+
+
 # ── Inpainting ─────────────────────────────────────────────────────────────
 
 def build_mask_from_area(image, x1: int, y1: int, x2: int, y2: int,
@@ -112,21 +170,14 @@ def remove_content_inpaint(image, x1: int, y1: int, x2: int, y2: int,
                              radius: int = INPAINT_RADIUS):
     """
     Remove conteúdo da área usando inpainting — reconstrói o fundo.
-    Usa máscara sólida (full_area=True) para garantir remoção 100%.
-    Passa por duas rodadas de inpainting para eliminar resíduos.
     """
     if not CV2_AVAILABLE:
         raise ImportError("OpenCV não instalado.")
     import cv2
 
-    # Sempre usa máscara sólida para garantir remoção completa
-    # (detecção automática por threshold deixa resíduos)
     mask = build_mask_full_area(x1, y1, x2, y2, image.shape)
-
-    # Primeira passagem — remove o conteúdo principal
     result = inpaint_area(image, mask, radius=radius)
 
-    # Segunda passagem com máscara levemente expandida — elimina resíduos de borda
     y1e = max(0, y1 - 2)
     y2e = min(image.shape[0], y2 + 2)
     x1e = max(0, x1 - 2)
@@ -139,18 +190,13 @@ def remove_content_inpaint(image, x1: int, y1: int, x2: int, y2: int,
 
 # ── Inserção ───────────────────────────────────────────────────────────────
 
-# ── Mapa de fontes: nome PDF → arquivo TTF Windows/Linux ──────────────────
-
 FONT_MAP = {
-    # Serif
     "times":    ["C:/Windows/Fonts/times.ttf",
-                 "C:/Windows/Fonts/timesnewroman.ttf",
                  "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf"],
     "timesbd":  ["C:/Windows/Fonts/timesbd.ttf",
                  "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf"],
     "timesi":   ["C:/Windows/Fonts/timesi.ttf",
                  "/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf"],
-    # Sans-serif
     "arial":    ["C:/Windows/Fonts/arial.ttf",
                  "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"],
     "arialbd":  ["C:/Windows/Fonts/arialbd.ttf",
@@ -159,10 +205,8 @@ FONT_MAP = {
     "calibrib": ["C:/Windows/Fonts/calibrib.ttf"],
     "verdana":  ["C:/Windows/Fonts/verdana.ttf"],
     "tahoma":   ["C:/Windows/Fonts/tahoma.ttf"],
-    # Mono
     "courier":  ["C:/Windows/Fonts/cour.ttf",
                  "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf"],
-    # Fallback
     "default":  ["C:/Windows/Fonts/arial.ttf",
                  "C:/Windows/Fonts/times.ttf",
                  "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
@@ -171,17 +215,9 @@ FONT_MAP = {
 
 
 def _resolve_font(fontname_hint: str, size: int) -> "ImageFont.FreeTypeFont":
-    """
-    Tenta carregar a fonte mais próxima do nome detectado no PDF.
-    Faz fallback progressivo até encontrar uma fonte disponível.
-    """
     hint = fontname_hint.lower()
-
-    # Detecta variações bold/italic no nome
     is_bold   = any(x in hint for x in ("bold","bd","black","heavy","semibold"))
     is_italic = any(x in hint for x in ("italic","it","oblique","slant"))
-
-    # Monta lista de candidatos baseada no nome
     candidates = []
 
     if any(x in hint for x in ("times","tiro","roman","serif")):
@@ -200,7 +236,6 @@ def _resolve_font(fontname_hint: str, size: int) -> "ImageFont.FreeTypeFont":
     elif any(x in hint for x in ("tahoma",)):
         candidates += FONT_MAP["tahoma"]
 
-    # Sempre adiciona fallback no final
     candidates += FONT_MAP["default"]
 
     for path in candidates:
@@ -216,11 +251,6 @@ def _resolve_font(fontname_hint: str, size: int) -> "ImageFont.FreeTypeFont":
 def _fit_font_to_area(text: str, font_path_or_hint: str,
                        area_w: int, area_h: int,
                        start_size: int) -> tuple:
-    """
-    Retorna a fonte no tamanho original detectado.
-    NÃO reduz o tamanho mesmo que o texto seja mais longo que a área —
-    o texto deve manter o mesmo tamanho visual do original substituído.
-    """
     size = min(start_size, area_h - 2)
     size = max(6, size)
     font = _resolve_font(font_path_or_hint, size)
@@ -235,38 +265,17 @@ def smart_replace_text(image, new_text: str,
                         color_bgr: tuple = (0, 0, 0),
                         align: str = "left",
                         font_path_override: str | None = None):
-    """
-    Insere novo texto de forma inteligente:
-    - Ajusta o tamanho da fonte para o texto caber exatamente na área
-    - Alinha horizontal (left/center/right) e vertical (center)
-    - Usa a fonte mais próxima da original detectada no PDF
-    
-    Parâmetros:
-        image          : imagem BGR
-        new_text       : texto novo a inserir
-        x1,y1,x2,y2   : área onde o texto original estava (pixels)
-        original_text  : texto original (usado para calcular proporção)
-        fontname_hint  : nome da fonte detectada no PDF
-        font_size_hint : tamanho em pixels como ponto de partida
-        color_bgr      : cor BGR
-        align          : "left", "center" ou "right"
-    """
     area_w = x2 - x1
     area_h = y2 - y1
 
     if area_w <= 0 or area_h <= 0:
         return image
 
-    # font_size_hint já vem calculado corretamente pelo Groq (usa área real)
-    # Não aplica ratio duplo — Groq já considerou o scale_factor
     adjusted_start = font_size_hint
-
-    # Ajusta fonte para caber na largura — só reduz se realmente não couber
     hint = font_path_override if font_path_override else fontname_hint
     font, final_size = _fit_font_to_area(
         new_text, hint, area_w, area_h, adjusted_start)
 
-    # Mede o texto final
     try:
         bbox = font.getbbox(new_text)
         tw = bbox[2] - bbox[0]
@@ -278,18 +287,15 @@ def smart_replace_text(image, new_text: str,
             tw = len(new_text) * final_size // 2
             th = final_size
 
-    # Calcula posição X conforme alinhamento
     if align == "center":
         tx = x1 + (area_w - tw) // 2
     elif align == "right":
         tx = x2 - tw
-    else:  # left
+    else:
         tx = x1
 
-    # Centraliza verticalmente na área
     ty = y1 + max(0, (area_h - th) // 2)
 
-    # Desenha na imagem
     if CV2_AVAILABLE:
         import cv2
         rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -316,7 +322,6 @@ def insert_text_on_image(image, text: str, x: int, y: int,
                           font_size: int = 24,
                           color_bgr: tuple = (0, 0, 0),
                           font_path: str | None = None):
-    """Insere texto simples na posição x,y. Para substituição use smart_replace_text."""
     if CV2_AVAILABLE:
         import cv2
         rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -341,7 +346,6 @@ def insert_text_on_image(image, text: str, x: int, y: int,
 
 def insert_image_on_image(base_image, overlay_path: str,
                            x1: int, y1: int, x2: int, y2: int):
-    """Insere imagem PNG (com alpha) sobre a imagem base."""
     if not CV2_AVAILABLE:
         raise ImportError("OpenCV não instalado.")
     import cv2
@@ -364,16 +368,6 @@ def insert_image_on_image(base_image, overlay_path: str,
 # ── Classe principal ───────────────────────────────────────────────────────
 
 class InpaintingEngine:
-    """
-    Motor completo de edição de PDF via inpainting.
-
-    Uso:
-        engine = InpaintingEngine("doc.pdf", dpi=200)
-        engine.remove_content(page=0, x1=100, y1=200, x2=400, y2=240)
-        engine.add_text(page=0, text="Carla", x=100, y=202, font_size=28)
-        engine.save("doc_editado.pdf")
-    """
-
     def __init__(self, pdf_path: str, dpi: int = DEFAULT_DPI):
         if not os.path.exists(pdf_path):
             raise FileNotFoundError(f"PDF não encontrado: {pdf_path}")
@@ -399,9 +393,7 @@ class InpaintingEngine:
     def remove_content(self, page: int, x1: int, y1: int, x2: int, y2: int,
                         threshold: int = 80, full_area: bool = False,
                         inpaint_radius: int = INPAINT_RADIUS) -> "InpaintingEngine":
-        """Remove texto/assinatura — fundo reconstruído automaticamente."""
         self._check(page)
-        print(f"[remove_content] p{page} ({x1},{y1})-({x2},{y2})")
         self.pages[page] = remove_content_inpaint(
             self.pages[page], x1, y1, x2, y2,
             threshold=threshold, full_area=full_area, radius=inpaint_radius)
@@ -410,9 +402,7 @@ class InpaintingEngine:
     def add_text(self, page: int, text: str, x: int, y: int,
                  font_size: int = 24, color_bgr: tuple = (0, 0, 0),
                  font_path: str | None = None) -> "InpaintingEngine":
-        """Insere texto na página."""
         self._check(page)
-        print(f"[add_text] p{page} '{text}' @ ({x},{y})")
         self.pages[page] = insert_text_on_image(
             self.pages[page], text, x, y,
             font_size=font_size, color_bgr=color_bgr, font_path=font_path)
@@ -420,18 +410,14 @@ class InpaintingEngine:
 
     def add_signature(self, page: int, image_path: str,
                       x1: int, y1: int, x2: int, y2: int) -> "InpaintingEngine":
-        """Insere imagem de assinatura na área definida."""
         self._check(page)
-        print(f"[add_signature] p{page} '{image_path}'")
         self.pages[page] = insert_image_on_image(
             self.pages[page], image_path, x1, y1, x2, y2)
         return self
 
     def save(self, output_path: str) -> str:
-        """Salva todas as páginas como PDF."""
         print(f"[save] → '{output_path}'")
         image_to_pdf(self.pages, output_path, dpi=self.dpi)
-        print(f"[save] PDF gerado: {output_path}")
         return output_path
 
     @staticmethod
@@ -439,11 +425,9 @@ class InpaintingEngine:
                       output_dir: str = "output",
                       dpi: int = DEFAULT_DPI,
                       suffix: str = "_editado") -> list:
-        """Processa múltiplos PDFs com as mesmas operações."""
         os.makedirs(output_dir, exist_ok=True)
         outputs = []
         for pdf_path in pdf_list:
-            print(f"\n{'='*50}\nProcessando: {pdf_path}\n{'='*50}")
             try:
                 engine = InpaintingEngine(pdf_path, dpi=dpi)
                 for op in operations:
@@ -471,7 +455,6 @@ class InpaintingEngine:
                 outputs.append(out_path)
             except Exception as e:
                 print(f"[ERRO] '{pdf_path}': {e}")
-        print(f"\n✅ {len(outputs)}/{len(pdf_list)} PDFs gerados.")
         return outputs
 
     def _check(self, page: int):
