@@ -1,8 +1,9 @@
 """
 backend/main.py
 FastAPI — Quillr PDF API
+Armazenamento temporário: Supabase Storage (PDFs deletados ao fim da sessão)
 Segurança: JWT Supabase, Rate Limiting, CORS restrito, validação de upload,
-           sessão vinculada ao usuário, HTTPS obrigatório, logs de segurança
+           sessão vinculada ao usuário, logs de segurança
 """
 import os
 import sys
@@ -25,7 +26,7 @@ if sys.platform == "win32":
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Request, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel
 
@@ -37,33 +38,24 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("security.log"),   # salva em arquivo
-        logging.StreamHandler(),               # mostra no terminal
+        logging.StreamHandler(),
     ]
 )
 logger = logging.getLogger("quillr.security")
 
 def log_event(event: str, user_id: str = "-", ip: str = "-", details: str = ""):
-    """Registra evento de segurança."""
     logger.info(f"EVENT={event} USER={user_id} IP={ip} {details}")
 
 def log_warning(event: str, user_id: str = "-", ip: str = "-", details: str = ""):
-    """Registra aviso de segurança."""
     logger.warning(f"[AVISO] EVENT={event} USER={user_id} IP={ip} {details}")
 
 def log_error(event: str, user_id: str = "-", ip: str = "-", details: str = ""):
-    """Registra erro de segurança."""
     logger.error(f"[ERRO] EVENT={event} USER={user_id} IP={ip} {details}")
 
 # ── App ────────────────────────────────────────────────────────────────────
 app = FastAPI(title="Quillr PDF API")
 
-# ── Detecta ambiente ───────────────────────────────────────────────────────
 IS_PRODUCTION = os.environ.get("ENVIRONMENT", "development") == "production"
-
-# NOTA: HTTPSRedirectMiddleware foi REMOVIDO propositalmente.
-# O Railway gerencia HTTPS via proxy externo (TLS termination).
-# Manter esse middleware causaria loop infinito de redirecionamento.
 if IS_PRODUCTION:
     logger.info("Ambiente de producao detectado (Railway)")
 else:
@@ -111,26 +103,21 @@ def check_rate_limit(request: Request, endpoint: str = "default", user_id: str =
     ip = request.client.host
     limit, window = RATE_LIMITS.get(endpoint, RATE_LIMITS["default"])
     now = time.time()
-
     RATE_STORE[ip] = [(t, e) for t, e in RATE_STORE[ip] if now - t < window]
     endpoint_count = sum(1 for _, e in RATE_STORE[ip] if e == endpoint)
-
     if endpoint_count >= limit:
         log_warning("RATE_LIMIT_HIT", user_id=user_id, ip=ip,
                     details=f"endpoint={endpoint} count={endpoint_count} limit={limit}")
-        raise HTTPException(
-            status_code=429,
-            detail=f"Muitas requisições. Tente novamente em {window} segundos."
-        )
-
+        raise HTTPException(status_code=429,
+                            detail=f"Muitas requisições. Tente novamente em {window} segundos.")
     RATE_STORE[ip].append((now, endpoint))
 
 # ── Autenticação JWT Supabase ──────────────────────────────────────────────
 security = HTTPBearer(auto_error=False)
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
+SUPABASE_BUCKET = os.environ.get("SUPABASE_BUCKET", "pdf-sessions")
 
-# Cache de tokens validados: { token_hash: (user_data, expiry) }
 _TOKEN_CACHE: dict = {}
 
 async def verify_token(
@@ -138,7 +125,6 @@ async def verify_token(
     credentials: Optional[HTTPAuthorizationCredentials] = Depends(security),
     tk: str = "",
 ) -> dict:
-    # Aceita token do header Authorization OU do query param ?tk=
     if credentials and credentials.credentials:
         token = credentials.credentials
     elif tk:
@@ -147,7 +133,6 @@ async def verify_token(
         raise HTTPException(401, "Token nao fornecido.")
     ip = request.client.host
 
-    # Verifica cache — evita chamada ao Supabase em toda requisição
     import hashlib
     token_hash = hashlib.sha256(token.encode()).hexdigest()
     now = time.time()
@@ -155,7 +140,7 @@ async def verify_token(
     if token_hash in _TOKEN_CACHE:
         cached_user, expiry = _TOKEN_CACHE[token_hash]
         if now < expiry:
-            return cached_user  # retorna do cache instantaneamente
+            return cached_user
         else:
             del _TOKEN_CACHE[token_hash]
 
@@ -173,7 +158,6 @@ async def verify_token(
             },
             timeout=5.0,
         )
-
         if response.status_code != 200:
             log_warning("INVALID_TOKEN", ip=ip, details=f"status={response.status_code}")
             raise HTTPException(401, "Token invalido ou expirado. Faca login novamente.")
@@ -183,9 +167,7 @@ async def verify_token(
             log_warning("TOKEN_NO_USER", ip=ip)
             raise HTTPException(401, "Usuario nao encontrado.")
 
-        # Salva no cache por 10 minutos
         _TOKEN_CACHE[token_hash] = (user_data, now + 10 * 60)
-
         return user_data
 
     except HTTPException:
@@ -195,25 +177,82 @@ async def verify_token(
         raise HTTPException(401, "Erro ao validar token.")
 
 # ── Sessão vinculada ao usuário ────────────────────────────────────────────
-# { session_id: user_id }
 SESSION_OWNERS: dict[str, str] = {}
 
 def register_session(session_id: str, user_id: str):
-    """Registra o dono de uma sessão."""
     SESSION_OWNERS[session_id] = user_id
     log_event("SESSION_CREATED", user_id=user_id, details=f"session={session_id}")
 
 def verify_session_owner(session_id: str, user_id: str, ip: str = "-"):
-    """Verifica se o usuário é dono da sessão."""
     owner = SESSION_OWNERS.get(session_id)
-    if owner is None:
-        log_warning("SESSION_NOT_FOUND", user_id=user_id, ip=ip,
-                    details=f"session={session_id}")
-        raise HTTPException(404, "Sessão não encontrada.")
-    if owner != user_id:
+    if owner is not None and owner != user_id:
         log_error("SESSION_UNAUTHORIZED", user_id=user_id, ip=ip,
                   details=f"session={session_id} owner={owner}")
         raise HTTPException(403, "Acesso negado. Esta sessão pertence a outro usuário.")
+
+# ── Supabase Storage helpers ───────────────────────────────────────────────
+def storage_path(user_id: str, session_id: str) -> str:
+    """Caminho no bucket: user_id/session_id/document.pdf"""
+    return f"{user_id}/{session_id}/document.pdf"
+
+def upload_to_storage(user_id: str, session_id: str, content: bytes) -> bool:
+    """Faz upload do PDF para o Supabase Storage."""
+    import httpx
+    path = storage_path(user_id, session_id)
+    url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{path}"
+    headers = {
+        "Authorization": f"Bearer {SUPABASE_SERVICE_KEY}",
+        "apikey": SUPABASE_SERVICE_KEY,
+        "Content-Type": "application/pdf",
+        "x-upsert": "true",
+    }
+    res = httpx.post(url, content=content, headers=headers, timeout=60.0)
+    return res.status_code in (200, 201)
+
+def download_from_storage(user_id: str, session_id: str) -> bytes:
+    """Baixa o PDF do Supabase Storage."""
+    import httpx
+    path = storage_path(user_id, session_id)
+    url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{path}"
+    headers = {
+        "Authorization": f"Bearer {SUPABASE_SERVICE_KEY}",
+        "apikey": SUPABASE_SERVICE_KEY,
+    }
+    res = httpx.get(url, headers=headers, timeout=60.0)
+    if res.status_code != 200:
+        raise HTTPException(404, "Sessão não encontrada.")
+    return res.content
+
+def delete_from_storage(user_id: str, session_id: str):
+    """Deleta o PDF do Supabase Storage."""
+    import httpx
+    path = storage_path(user_id, session_id)
+    url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{path}"
+    headers = {
+        "Authorization": f"Bearer {SUPABASE_SERVICE_KEY}",
+        "apikey": SUPABASE_SERVICE_KEY,
+    }
+    httpx.delete(url, headers=headers, timeout=10.0)
+
+def get_pdf_local(user_id: str, session_id: str) -> Path:
+    """
+    Baixa o PDF do Supabase Storage para um arquivo temporário local.
+    Retorna o path local temporário.
+    """
+    content = download_from_storage(user_id, session_id)
+    tmp_dir = Path(tempfile.mkdtemp(prefix=f"quillr_{session_id}_"))
+    pdf_path = tmp_dir / "document.pdf"
+    pdf_path.write_bytes(content)
+    return pdf_path
+
+def save_pdf_and_cleanup(user_id: str, session_id: str, pdf_path: Path):
+    """
+    Faz upload do PDF modificado de volta para o Supabase Storage
+    e remove o diretório temporário local.
+    """
+    content = pdf_path.read_bytes()
+    upload_to_storage(user_id, session_id, content)
+    shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
 
 # ── Validação de PDF ───────────────────────────────────────────────────────
 MAX_FILE_SIZE = 100 * 1024 * 1024
@@ -221,8 +260,7 @@ PDF_MAGIC_BYTES = b"%PDF"
 
 async def validate_pdf(file: UploadFile, user_id: str = "-") -> bytes:
     if not file.filename.lower().endswith(".pdf"):
-        log_warning("INVALID_FILE_EXT", user_id=user_id,
-                    details=f"file={file.filename}")
+        log_warning("INVALID_FILE_EXT", user_id=user_id, details=f"file={file.filename}")
         raise HTTPException(400, "Apenas arquivos PDF são aceitos.")
 
     content = await file.read()
@@ -234,13 +272,11 @@ async def validate_pdf(file: UploadFile, user_id: str = "-") -> bytes:
         raise HTTPException(413, "Arquivo muito grande. Máximo: 100MB.")
 
     if len(content) < 4 or not content.startswith(PDF_MAGIC_BYTES):
-        log_warning("INVALID_PDF_MAGIC", user_id=user_id,
-                    details=f"file={file.filename}")
+        log_warning("INVALID_PDF_MAGIC", user_id=user_id, details=f"file={file.filename}")
         raise HTTPException(400, "Arquivo não é um PDF válido.")
 
     if b"/JavaScript" in content or b"/JS " in content:
-        log_error("PDF_WITH_JAVASCRIPT", user_id=user_id,
-                  details=f"file={file.filename}")
+        log_error("PDF_WITH_JAVASCRIPT", user_id=user_id, details=f"file={file.filename}")
         raise HTTPException(400, "PDF contém JavaScript e não é permitido.")
 
     try:
@@ -254,28 +290,6 @@ async def validate_pdf(file: UploadFile, user_id: str = "-") -> bytes:
         pass
 
     return content
-
-# ── Pasta temporária ───────────────────────────────────────────────────────
-UPLOAD_DIR = Path(tempfile.mkdtemp(prefix="quillr_"))
-INPAINTED_PAGES: dict[str, set] = {}
-
-def session_path(session_id: str) -> Path:
-    if not session_id.replace("-", "").isalnum():
-        raise HTTPException(400, "Session ID inválido.")
-    p = UPLOAD_DIR / session_id
-    p.mkdir(exist_ok=True)
-    return p
-
-def get_pdf_path(session_id: str) -> Path:
-    return session_path(session_id) / "document.pdf"
-
-def mark_inpainted(session_id: str, page: int):
-    if session_id not in INPAINTED_PAGES:
-        INPAINTED_PAGES[session_id] = set()
-    INPAINTED_PAGES[session_id].add(page)
-
-def is_inpainted(session_id: str, page: int) -> bool:
-    return page in INPAINTED_PAGES.get(session_id, set())
 
 # ── Models ─────────────────────────────────────────────────────────────────
 class EraseRequest(BaseModel):
@@ -298,20 +312,17 @@ async def session_check(
     request: Request,
     user: dict = Depends(verify_token),
 ):
-    """Verifica se uma sessão ainda está ativa no servidor."""
-    pdf_path = get_pdf_path(session_id)
-
-    if not pdf_path.exists():
+    user_id = user["id"]
+    try:
+        content = download_from_storage(user_id, session_id)
+    except HTTPException:
         return {"valid": False}
 
-    # Verifica se o dono bate
-    owner = SESSION_OWNERS.get(session_id)
-    if owner and owner != user["id"]:
-        return {"valid": False}
+    register_session(session_id, user_id)
 
-    # Se sessão existe mas sem dono registrado, registra agora
-    if not owner:
-        register_session(session_id, user["id"])
+    tmp_dir = Path(tempfile.mkdtemp(prefix=f"quillr_{session_id}_"))
+    pdf_path = tmp_dir / "document.pdf"
+    pdf_path.write_bytes(content)
 
     import fitz
     doc = fitz.open(str(pdf_path))
@@ -319,8 +330,9 @@ async def session_check(
     pages_info = [{"width": doc[i].rect.width, "height": doc[i].rect.height}
                   for i in range(page_count)]
     doc.close()
+    shutil.rmtree(str(tmp_dir), ignore_errors=True)
 
-    log_event("SESSION_REUSED", user_id=user["id"], ip=request.client.host,
+    log_event("SESSION_REUSED", user_id=user_id, ip=request.client.host,
               details=f"session={session_id}")
 
     return {
@@ -342,15 +354,20 @@ async def upload_pdf(
     check_rate_limit(request, "upload", user_id)
 
     content = await validate_pdf(file, user_id)
-
     session_id = str(uuid.uuid4())
-    pdf_path = get_pdf_path(session_id)
 
-    with open(pdf_path, "wb") as f:
-        f.write(content)
+    # Salva no Supabase Storage
+    ok = upload_to_storage(user_id, session_id, content)
+    if not ok:
+        log_error("STORAGE_UPLOAD_FAILED", user_id=user_id, ip=ip)
+        raise HTTPException(500, "Erro ao salvar arquivo no storage.")
 
-    # Vincula sessão ao usuário
     register_session(session_id, user_id)
+
+    # Abre localmente só para ler metadados
+    tmp_dir = Path(tempfile.mkdtemp(prefix=f"quillr_{session_id}_"))
+    pdf_path = tmp_dir / "document.pdf"
+    pdf_path.write_bytes(content)
 
     import fitz
     doc = fitz.open(str(pdf_path))
@@ -358,6 +375,7 @@ async def upload_pdf(
     pages_info = [{"width": doc[i].rect.width, "height": doc[i].rect.height}
                   for i in range(page_count)]
     doc.close()
+    shutil.rmtree(str(tmp_dir), ignore_errors=True)
 
     log_event("UPLOAD_SUCCESS", user_id=user_id, ip=ip,
               details=f"file={file.filename} pages={page_count} session={session_id}")
@@ -384,21 +402,22 @@ async def render_page(
     verify_session_owner(session_id, user_id, ip)
 
     zoom = max(0.5, min(zoom, 3.0))
-    pdf_path = get_pdf_path(session_id)
-    if not pdf_path.exists():
-        raise HTTPException(404, "Sessão não encontrada.")
+    pdf_path = get_pdf_local(user_id, session_id)
 
     import fitz
     doc = fitz.open(str(pdf_path))
     if page < 0 or page >= doc.page_count:
+        doc.close()
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
         raise HTTPException(400, "Página inválida.")
 
     pix = doc[page].get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False)
-    img_path = session_path(session_id) / f"page_{page}_{uuid.uuid4().hex[:8]}.png"
-    pix.save(str(img_path))
+    img_bytes = pix.tobytes("png")
     doc.close()
+    shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
 
-    return FileResponse(str(img_path), media_type="image/png")
+    import io
+    return StreamingResponse(io.BytesIO(img_bytes), media_type="image/png")
 
 @app.post("/extract/{session_id}/{page}")
 async def extract_text(
@@ -412,32 +431,32 @@ async def extract_text(
     check_rate_limit(request, "extract", user_id)
     verify_session_owner(session_id, user_id, ip)
 
-    pdf_path = get_pdf_path(session_id)
-    if not pdf_path.exists():
-        raise HTTPException(404, "Sessão não encontrada.")
+    pdf_path = get_pdf_local(user_id, session_id)
 
-    import sys
-    sys.path.insert(0, str(Path(__file__).parent))
-    from core.extractor import PDFExtractor
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from core.extractor import PDFExtractor
 
-    groq_key = os.environ.get("GROQ_API_KEY", "")
-    extractor = PDFExtractor(groq_api_key=groq_key)
-    extractor.open(str(pdf_path))
+        groq_key = os.environ.get("GROQ_API_KEY", "")
+        extractor = PDFExtractor(groq_api_key=groq_key)
+        extractor.open(str(pdf_path))
+        blocks = extractor.extract_page(page)
 
-    blocks = extractor.extract_page(page)
+        result = [
+            {
+                "id": b.id, "text": b.text,
+                "x0": b.x0, "y0": b.y0, "x1": b.x1, "y1": b.y1,
+                "font_size": b.font_size, "font_name": b.font_name,
+                "is_bold": b.is_bold, "is_italic": b.is_italic,
+                "color_rgb": list(b.color_rgb), "align": b.align,
+                "source": b.source,
+            }
+            for b in blocks
+        ]
+        extractor.close()
+    finally:
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
 
-    result = [
-        {
-            "id": b.id, "text": b.text,
-            "x0": b.x0, "y0": b.y0, "x1": b.x1, "y1": b.y1,
-            "font_size": b.font_size, "font_name": b.font_name,
-            "is_bold": b.is_bold, "is_italic": b.is_italic,
-            "color_rgb": list(b.color_rgb), "align": b.align,
-            "source": b.source,
-        }
-        for b in blocks
-    ]
-    extractor.close()
     log_event("EXTRACT_SUCCESS", user_id=user_id, ip=ip,
               details=f"session={session_id} page={page} blocks={len(result)}")
     return {"blocks": result}
@@ -457,12 +476,9 @@ async def erase_area(
         if not (0 <= val <= 100):
             raise HTTPException(400, "Coordenadas inválidas.")
 
-    pdf_path = get_pdf_path(req.session_id)
-    if not pdf_path.exists():
-        raise HTTPException(404, "Sessão não encontrada.")
+    pdf_path = get_pdf_local(user_id, req.session_id)
 
     try:
-        import sys
         sys.path.insert(0, str(Path(__file__).parent))
         from core.inpainting_engine import pdf_page_to_image, remove_content_inpaint
         import fitz
@@ -488,7 +504,7 @@ async def erase_area(
         pil_clean = PILImage.fromarray(rgb)
 
         doc = fitz.open(str(pdf_path))
-        tmp_page = str(session_path(req.session_id) / f"tmp_page_{req.page}.pdf")
+        tmp_page = str(pdf_path.parent / f"tmp_page_{req.page}.pdf")
         pil_clean.save(tmp_page, format="PDF", resolution=dpi)
         tmp_doc = fitz.open(tmp_page)
         doc.delete_page(req.page)
@@ -501,14 +517,17 @@ async def erase_area(
         doc.close()
         os.replace(tmp_pdf, str(pdf_path))
 
-        mark_inpainted(req.session_id, req.page)
+        save_pdf_and_cleanup(user_id, req.session_id, pdf_path)
+
         log_event("ERASE_SUCCESS", user_id=user_id, ip=ip,
                   details=f"session={req.session_id} page={req.page}")
         return {"ok": True, "message": "Área apagada com sucesso.", "page_is_image": True}
 
     except HTTPException:
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
         raise
     except Exception as e:
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
         log_error("ERASE_ERROR", user_id=user_id, ip=ip, details=str(e))
         raise HTTPException(500, f"Erro ao apagar: {e}")
 
@@ -535,23 +554,18 @@ async def add_signature(
     content = await file.read()
     if len(content) > 5 * 1024 * 1024:
         raise HTTPException(413, "Imagem muito grande. Máximo: 5MB.")
-    await file.seek(0)
 
-    pdf_path = get_pdf_path(session_id)
-    if not pdf_path.exists():
-        raise HTTPException(404, "Sessão não encontrada.")
+    pdf_path = get_pdf_local(user_id, session_id)
 
     try:
-        import sys
         sys.path.insert(0, str(Path(__file__).parent))
         from core.inpainting_engine import pdf_page_to_image
         import fitz
         import numpy as np
         from PIL import Image as PILImage
 
-        sig_path = session_path(session_id) / f"sig_{uuid.uuid4()}.png"
-        with open(sig_path, "wb") as f:
-            f.write(content)
+        sig_path = pdf_path.parent / f"sig_{uuid.uuid4()}.png"
+        sig_path.write_bytes(content)
 
         dpi = 200
         img = pdf_page_to_image(str(pdf_path), page, dpi=dpi)
@@ -577,28 +591,30 @@ async def add_signature(
         pil_result = PILImage.fromarray(rgb)
 
         doc = fitz.open(str(pdf_path))
-        tmp_page = str(session_path(session_id) / f"tmp_sig_{page}.pdf")
+        tmp_page = str(pdf_path.parent / f"tmp_sig_{page}.pdf")
         pil_result.save(tmp_page, format="PDF", resolution=dpi)
         tmp_doc = fitz.open(tmp_page)
         doc.delete_page(page)
         doc.insert_pdf(tmp_doc, from_page=0, to_page=0, start_at=page)
         tmp_doc.close()
         os.remove(tmp_page)
-        sig_path.unlink(missing_ok=True)
 
         tmp_pdf = str(pdf_path) + ".tmp"
         doc.save(tmp_pdf, garbage=4, deflate=True)
         doc.close()
         os.replace(tmp_pdf, str(pdf_path))
 
-        mark_inpainted(session_id, page)
+        save_pdf_and_cleanup(user_id, session_id, pdf_path)
+
         log_event("SIGNATURE_SUCCESS", user_id=user_id, ip=ip,
                   details=f"session={session_id} page={page}")
         return {"ok": True}
 
     except HTTPException:
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
         raise
     except Exception as e:
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
         log_error("SIGNATURE_ERROR", user_id=user_id, ip=ip, details=str(e))
         raise HTTPException(500, f"Erro ao inserir assinatura: {e}")
 
@@ -615,25 +631,22 @@ async def save_text_edits(
     verify_session_owner(session_id, user_id, ip)
 
     import json as json_lib
-    pdf_path = get_pdf_path(session_id)
-    if not pdf_path.exists():
-        raise HTTPException(404, "Sessão não encontrada.")
+    pdf_path = get_pdf_local(user_id, session_id)
 
     try:
         edits_list = json_lib.loads(edits)
         if len(edits_list) > 500:
             raise HTTPException(400, "Muitas edições por vez. Máximo: 500.")
 
-        import sys
         sys.path.insert(0, str(Path(__file__).parent))
         from core.inpainting_engine import (
             pdf_all_pages_to_images, remove_content_inpaint,
             smart_replace_text, image_to_pdf)
 
+        import fitz
         dpi = 200
         all_imgs = pdf_all_pages_to_images(str(pdf_path), dpi=dpi)
 
-        import fitz
         doc = fitz.open(str(pdf_path))
         by_page = {}
         for e in edits_list:
@@ -642,8 +655,8 @@ async def save_text_edits(
         for page_idx, page_edits in by_page.items():
             img = all_imgs[page_idx].copy()
             ih, iw = img.shape[:2]
-            page = doc[page_idx]
-            pw, ph = page.rect.width, page.rect.height
+            pg = doc[page_idx]
+            pw, ph = pg.rect.width, pg.rect.height
             sx, sy = iw / pw, ih / ph
 
             for edit in page_edits:
@@ -668,13 +681,17 @@ async def save_text_edits(
         image_to_pdf(all_imgs, tmp, dpi=dpi)
         os.replace(tmp, str(pdf_path))
 
+        save_pdf_and_cleanup(user_id, session_id, pdf_path)
+
         log_event("SAVE_TEXT_SUCCESS", user_id=user_id, ip=ip,
                   details=f"session={session_id} edits={len(edits_list)}")
         return {"ok": True}
 
     except HTTPException:
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
         raise
     except Exception as e:
+        shutil.rmtree(str(pdf_path.parent), ignore_errors=True)
         log_error("SAVE_TEXT_ERROR", user_id=user_id, ip=ip, details=str(e))
         raise HTTPException(500, f"Erro ao salvar texto: {e}")
 
@@ -690,14 +707,16 @@ async def download_pdf(
     check_rate_limit(request, "default", user_id)
     verify_session_owner(session_id, user_id, ip)
 
-    pdf_path = get_pdf_path(session_id)
-    if not pdf_path.exists():
-        raise HTTPException(404, "Sessão não encontrada.")
+    content = download_from_storage(user_id, session_id)
 
     log_event("DOWNLOAD", user_id=user_id, ip=ip, details=f"session={session_id}")
-    return FileResponse(str(pdf_path), media_type="application/pdf",
-                        filename="documento_editado.pdf")
 
+    import io
+    return StreamingResponse(
+        io.BytesIO(content),
+        media_type="application/pdf",
+        headers={"Content-Disposition": "attachment; filename=documento_editado.pdf"}
+    )
 
 # ── Mercado Pago ───────────────────────────────────────────────────────────
 MP_ACCESS_TOKEN = os.environ.get("MP_ACCESS_TOKEN", "")
@@ -708,7 +727,6 @@ async def create_subscription(
     request: Request,
     user: dict = Depends(verify_token),
 ):
-    """Cria preferência de assinatura no Mercado Pago."""
     user_id = user["id"]
     ip = request.client.host
 
@@ -760,10 +778,7 @@ async def create_subscription(
         log_event("MP_SUB_CREATED", user_id=user_id, ip=ip,
                   details=f"preapproval_id={data.get('id')}")
 
-        return {
-            "init_point": data.get("init_point"),
-            "id": data.get("id"),
-        }
+        return {"init_point": data.get("init_point"), "id": data.get("id")}
 
     except HTTPException:
         raise
@@ -771,10 +786,8 @@ async def create_subscription(
         log_error("MP_CREATE_SUB_EXCEPTION", user_id=user_id, ip=ip, details=str(e))
         raise HTTPException(500, f"Erro: {e}")
 
-
 @app.post("/webhook/mp")
 async def webhook_mercadopago(request: Request):
-    """Webhook do Mercado Pago — atualiza plano no Supabase."""
     try:
         body = await request.json()
         topic = body.get("type") or request.query_params.get("topic", "")
@@ -798,15 +811,14 @@ async def webhook_mercadopago(request: Request):
 
             sub = res.json()
             user_id = sub.get("external_reference")
-            status = sub.get("status")  # authorized, paused, cancelled
+            status = sub.get("status")
 
             if not user_id:
                 return {"ok": True}
 
-            import httpx as hx
             new_plan = "pro" if status == "authorized" else "free"
 
-            supabase_res = hx.patch(
+            httpx.patch(
                 f"{SUPABASE_URL}/rest/v1/profiles?user_id=eq.{user_id}",
                 headers={
                     "Authorization": f"Bearer {SUPABASE_SERVICE_KEY}",
@@ -829,7 +841,7 @@ async def webhook_mercadopago(request: Request):
 
     except Exception as e:
         log_error("WEBHOOK_ERROR", details=str(e))
-        return {"ok": True}  # sempre retorna 200 para o MP nao retentar
+        return {"ok": True}
 
 @app.delete("/session/{session_id}")
 async def delete_session(
@@ -841,10 +853,7 @@ async def delete_session(
     ip = request.client.host
     verify_session_owner(session_id, user_id, ip)
 
-    p = session_path(session_id)
-    if p.exists():
-        shutil.rmtree(str(p))
-    INPAINTED_PAGES.pop(session_id, None)
+    delete_from_storage(user_id, session_id)
     SESSION_OWNERS.pop(session_id, None)
 
     log_event("SESSION_DELETED", user_id=user_id, ip=ip,
