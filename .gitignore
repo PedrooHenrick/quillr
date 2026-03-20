@@ -1,5 +1,29 @@
-venv/
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environment
+venv/
+env/
 .env
+
+# Sessions / uploads temporários
 sessions/
-*.pyc
+*.tmp
+*.tmp.pdf
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
