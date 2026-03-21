@@ -4,14 +4,12 @@ FastAPI — PDF Editor Pro Web
 """
 import os
 import uuid
-import tempfile
 import shutil
 from pathlib import Path
-from typing import Optional
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 app = FastAPI(title="PDF Editor Pro API")
@@ -35,6 +33,7 @@ def session_path(session_id: str) -> Path:
 def get_pdf_path(session_id: str) -> Path:
     return session_path(session_id) / "document.pdf"
 
+
 class EraseRequest(BaseModel):
     session_id: str
     page: int
@@ -43,17 +42,11 @@ class EraseRequest(BaseModel):
     w_pct: float
     h_pct: float
 
-class TextEditRequest(BaseModel):
-    session_id: str
-    block_id: str
-    new_text: str
-
-class SaveRequest(BaseModel):
-    session_id: str
 
 @app.get("/")
 def root():
     return {"status": "PDF Editor Pro API online"}
+
 
 @app.post("/upload")
 async def upload_pdf(file: UploadFile = File(...)):
@@ -82,6 +75,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         "pages": pages_info,
     }
 
+
 @app.get("/render/{session_id}/{page}")
 async def render_page(session_id: str, page: int, zoom: float = 1.5):
     pdf_path = get_pdf_path(session_id)
@@ -100,6 +94,7 @@ async def render_page(session_id: str, page: int, zoom: float = 1.5):
 
     return FileResponse(str(img_path), media_type="image/png")
 
+
 @app.post("/extract/{session_id}/{page}")
 async def extract_text(session_id: str, page: int):
     pdf_path = get_pdf_path(session_id)
@@ -110,8 +105,7 @@ async def extract_text(session_id: str, page: int):
     sys.path.insert(0, str(Path(__file__).parent))
     from core.extractor import PDFExtractor
 
-    groq_key = os.environ.get("GROQ_API_KEY", "")
-    extractor = PDFExtractor(groq_api_key=groq_key)
+    extractor = PDFExtractor()
     extractor.open(str(pdf_path))
     blocks = extractor.extract_page(page)
 
@@ -133,6 +127,7 @@ async def extract_text(session_id: str, page: int):
     extractor.close()
     return {"blocks": result}
 
+
 @app.get("/session-check/{session_id}")
 async def session_check(session_id: str):
     pdf_path = get_pdf_path(session_id)
@@ -140,11 +135,13 @@ async def session_check(session_id: str):
         raise HTTPException(404, "Sessão não encontrada.")
     return {"ok": True}
 
+
 @app.post("/erase")
 async def erase_area(req: EraseRequest):
     """
-    Apaga área usando inpainting do OpenCV — reconstrói o fundo real (foto, textura, etc).
-    Converte só a página afetada em imagem, aplica inpainting, reinsere no PDF.
+    Apaga área usando inpainting do OpenCV — reconstrói o fundo real.
+    Converte só a página afetada em imagem, aplica inpainting,
+    reinsere no PDF e injeta camada de texto invisível para manter extração.
     """
     pdf_path = get_pdf_path(req.session_id)
     if not pdf_path.exists():
@@ -161,7 +158,15 @@ async def erase_area(req: EraseRequest):
 
         DPI = 200
 
-        # 1. Converte APENAS a página afetada em imagem
+        # Salva texto nativo ANTES de converter para imagem
+        doc_orig = fitz.open(str(pdf_path))
+        page_orig = doc_orig[req.page]
+        text_dict = page_orig.get_text("dict")
+        orig_width  = page_orig.rect.width
+        orig_height = page_orig.rect.height
+        doc_orig.close()
+
+        # 1. Converte página para imagem
         img = pdf_page_to_image(str(pdf_path), req.page, dpi=DPI)
         ih, iw = img.shape[:2]
 
@@ -174,14 +179,14 @@ async def erase_area(req: EraseRequest):
         if x2 <= x1 or y2 <= y1:
             raise HTTPException(400, "Área inválida.")
 
-        # 3. Inpainting — reconstrói o fundo real da imagem
+        # 3. Inpainting
         img_result = remove_content_inpaint(
             img, x1, y1, x2, y2,
-            full_area=True,   # máscara sólida garante remoção 100%
-            radius=7,         # raio maior = melhor reconstrução de fundos complexos
+            full_area=True,
+            radius=7,
         )
 
-        # 4. Substitui só a página editada no PDF
+        # 4. Substitui página no PDF
         doc = fitz.open(str(pdf_path))
 
         try:
@@ -203,17 +208,21 @@ async def erase_area(req: EraseRequest):
         tmp_doc.close()
         os.remove(tmp_page_pdf)
 
+        # 5. Injeta camada de texto invisível (preserva extração nativa)
+        _inject_text_layer(doc, req.page, text_dict, orig_width, orig_height)
+
         tmp_pdf = str(pdf_path) + ".tmp"
         doc.save(tmp_pdf, garbage=4, deflate=True)
         doc.close()
         os.replace(tmp_pdf, str(pdf_path))
 
-        return {"ok": True, "message": "Área apagada com inpainting. Fundo reconstruído."}
+        return {"ok": True, "message": "Área apagada. Fundo reconstruído."}
 
     except HTTPException:
         raise
     except Exception as e:
         raise HTTPException(500, f"Erro ao apagar: {e}")
+
 
 @app.post("/signature")
 async def add_signature(
@@ -236,6 +245,14 @@ async def add_signature(
         import fitz
         import numpy as np
         from PIL import Image as PILImage
+
+        # Salva texto nativo ANTES de converter
+        doc_orig = fitz.open(str(pdf_path))
+        page_orig = doc_orig[page]
+        text_dict = page_orig.get_text("dict")
+        orig_width  = page_orig.rect.width
+        orig_height = page_orig.rect.height
+        doc_orig.close()
 
         sig_path = session_path(session_id) / f"sig_{uuid.uuid4()}.png"
         with open(sig_path, "wb") as f:
@@ -274,6 +291,9 @@ async def add_signature(
         os.remove(tmp_page)
         os.remove(str(sig_path))
 
+        # Injeta camada de texto invisível
+        _inject_text_layer(doc, page, text_dict, orig_width, orig_height)
+
         tmp_pdf = str(pdf_path) + ".tmp"
         doc.save(tmp_pdf, garbage=4, deflate=True)
         doc.close()
@@ -282,6 +302,7 @@ async def add_signature(
         return {"ok": True}
     except Exception as e:
         raise HTTPException(500, f"Erro ao inserir assinatura: {e}")
+
 
 @app.post("/save-text")
 async def save_text_edits(
@@ -299,12 +320,23 @@ async def save_text_edits(
         from core.inpainting_engine import (
             pdf_all_pages_to_images, remove_content_inpaint,
             smart_replace_text, image_to_pdf)
+        import fitz
 
         edits_list = json.loads(edits)
         dpi = 200
+
+        # Salva texto nativo de TODAS as páginas ANTES de converter
+        doc_orig = fitz.open(str(pdf_path))
+        pages_text = {}
+        pages_size = {}
+        for i in range(doc_orig.page_count):
+            p = doc_orig[i]
+            pages_text[i] = p.get_text("dict")
+            pages_size[i] = (p.rect.width, p.rect.height)
+        doc_orig.close()
+
         all_imgs = pdf_all_pages_to_images(str(pdf_path), dpi=dpi)
 
-        import fitz
         doc = fitz.open(str(pdf_path))
 
         by_page = {}
@@ -314,8 +346,7 @@ async def save_text_edits(
         for page_idx, page_edits in by_page.items():
             img = all_imgs[page_idx].copy()
             ih, iw = img.shape[:2]
-            page = doc[page_idx]
-            pw, ph = page.rect.width, page.rect.height
+            pw, ph = pages_size[page_idx]
             sx, sy = iw / pw, ih / ph
 
             for edit in page_edits:
@@ -337,13 +368,41 @@ async def save_text_edits(
             all_imgs[page_idx] = img
 
         doc.close()
+
+        # Salva PDF com imagens
         tmp = str(pdf_path) + ".tmp"
         image_to_pdf(all_imgs, tmp, dpi=dpi)
         os.replace(tmp, str(pdf_path))
 
+        # Injeta camada de texto invisível em TODAS as páginas
+        # — atualiza texto editado nas páginas modificadas
+        doc2 = fitz.open(str(pdf_path))
+
+        for page_idx in range(doc2.page_count):
+            text_dict = pages_text.get(page_idx)
+            if not text_dict:
+                continue
+            orig_w, orig_h = pages_size[page_idx]
+
+            # Para páginas editadas, atualiza texto dos blocos editados
+            page_edits_map = {}
+            for edit in by_page.get(page_idx, []):
+                page_edits_map[edit["original_text"]] = edit["new_text"]
+
+            _inject_text_layer(
+                doc2, page_idx, text_dict, orig_w, orig_h,
+                text_replacements=page_edits_map
+            )
+
+        tmp2 = str(pdf_path) + ".tmp2"
+        doc2.save(tmp2, garbage=4, deflate=True)
+        doc2.close()
+        os.replace(tmp2, str(pdf_path))
+
         return {"ok": True}
     except Exception as e:
         raise HTTPException(500, f"Erro ao salvar texto: {e}")
+
 
 @app.get("/download/{session_id}")
 async def download_pdf(session_id: str):
@@ -356,9 +415,88 @@ async def download_pdf(session_id: str):
         filename="documento_editado.pdf",
     )
 
+
 @app.delete("/session/{session_id}")
 async def delete_session(session_id: str):
     p = session_path(session_id)
     if p.exists():
         shutil.rmtree(str(p))
     return {"ok": True}
+
+
+# ── Helper: injeta camada de texto invisível ──────────────────────────────
+
+def _inject_text_layer(
+    doc: "fitz.Document",
+    page_idx: int,
+    text_dict: dict,
+    orig_width: float,
+    orig_height: float,
+    text_replacements: dict = None,
+):
+    """
+    Injeta texto invisível (renderMode=3) sobre a página imagem.
+    Escala as coordenadas do espaço PDF original para o novo tamanho da página.
+    Isso permite que o PyMuPDF extraia texto nativo mesmo após a página
+    ter sido convertida para imagem — sem OCR externo.
+
+    text_replacements: dict {texto_original: texto_novo} para páginas editadas
+    """
+    try:
+        import fitz
+
+        page = doc[page_idx]
+        new_w = page.rect.width
+        new_h = page.rect.height
+
+        # Fatores de escala do espaço original para o novo
+        sx = new_w / orig_width  if orig_width  > 0 else 1.0
+        sy = new_h / orig_height if orig_height > 0 else 1.0
+
+        for block in text_dict.get("blocks", []):
+            if block.get("type") != 0:
+                continue
+            for line in block.get("lines", []):
+                for span in line.get("spans", []):
+                    text = span.get("text", "").strip()
+                    if not text:
+                        continue
+
+                    # Aplica substituição se houver
+                    if text_replacements and text in text_replacements:
+                        text = text_replacements[text]
+
+                    bbox = span["bbox"]
+                    x0 = bbox[0] * sx
+                    y0 = bbox[1] * sy
+                    x1 = bbox[2] * sx
+                    y1 = bbox[3] * sy
+
+                    font_size = span.get("size", 11.0) * sy
+                    font_size = max(4.0, font_size)
+
+                    # Cor original
+                    raw_color = span.get("color", 0)
+                    if isinstance(raw_color, int):
+                        r = ((raw_color >> 16) & 0xFF) / 255.0
+                        g = ((raw_color >> 8) & 0xFF) / 255.0
+                        b = (raw_color & 0xFF) / 255.0
+                        color = (r, g, b)
+                    else:
+                        color = tuple(raw_color)
+
+                    # Insere texto invisível (renderMode=3 = invisible)
+                    try:
+                        page.insert_text(
+                            (x0, y1),           # posição baseline
+                            text,
+                            fontsize=font_size,
+                            color=color,
+                            render_mode=3,      # invisível mas selecionável/extraível
+                        )
+                    except Exception as e:
+                        print(f"[inject_text] span error: {e}")
+                        continue
+
+    except Exception as e:
+        print(f"[_inject_text_layer] p{page_idx} error: {e}")
