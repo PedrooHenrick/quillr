@@ -133,78 +133,85 @@ async def extract_text(session_id: str, page: int):
     extractor.close()
     return {"blocks": result}
 
+@app.get("/session-check/{session_id}")
+async def session_check(session_id: str):
+    pdf_path = get_pdf_path(session_id)
+    if not pdf_path.exists():
+        raise HTTPException(404, "Sessão não encontrada.")
+    return {"ok": True}
+
 @app.post("/erase")
 async def erase_area(req: EraseRequest):
     """
-    Apaga área com PyMuPDF redaction.
-    NAO converte a pagina pra imagem — preserva texto nativo para continuar editando.
+    Apaga área usando inpainting do OpenCV — reconstrói o fundo real (foto, textura, etc).
+    Converte só a página afetada em imagem, aplica inpainting, reinsere no PDF.
     """
     pdf_path = get_pdf_path(req.session_id)
     if not pdf_path.exists():
         raise HTTPException(404, "Sessão não encontrada.")
 
     try:
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent))
+        from core.inpainting_engine import (
+            pdf_page_to_image, remove_content_inpaint,
+        )
         import fitz
         from PIL import Image as PILImage
 
-        doc = fitz.open(str(pdf_path))
-        page = doc[req.page]
-        pw, ph = page.rect.width, page.rect.height
+        DPI = 200
 
-        # Converte % → pontos PDF
-        x0 = req.x_pct / 100 * pw
-        y0 = req.y_pct / 100 * ph
-        x1 = (req.x_pct + req.w_pct) / 100 * pw
-        y1 = (req.y_pct + req.h_pct) / 100 * ph
-        erase_rect = fitz.Rect(x0, y0, x1, y1)
+        # 1. Converte APENAS a página afetada em imagem
+        img = pdf_page_to_image(str(pdf_path), req.page, dpi=DPI)
+        ih, iw = img.shape[:2]
 
-        # Detecta cor do fundo nas bordas da área
-        margin = 12
-        sample_rect = fitz.Rect(
-            max(0, x0 - margin), max(0, y0 - margin),
-            min(pw, x1 + margin), min(ph, y1 + margin)
+        # 2. Converte % → pixels
+        x1 = max(0,  int(req.x_pct / 100 * iw))
+        y1 = max(0,  int(req.y_pct / 100 * ih))
+        x2 = min(iw, int((req.x_pct + req.w_pct) / 100 * iw))
+        y2 = min(ih, int((req.y_pct + req.h_pct) / 100 * ih))
+
+        if x2 <= x1 or y2 <= y1:
+            raise HTTPException(400, "Área inválida.")
+
+        # 3. Inpainting — reconstrói o fundo real da imagem
+        img_result = remove_content_inpaint(
+            img, x1, y1, x2, y2,
+            full_area=True,   # máscara sólida garante remoção 100%
+            radius=7,         # raio maior = melhor reconstrução de fundos complexos
         )
-        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), clip=sample_rect, alpha=False)
-        img = PILImage.frombytes("RGB", [pix.width, pix.height], pix.samples)
-        w, h = img.size
-        margin_px = max(6, int(margin * 2))
 
-        border_pixels = []
-        for x in range(w):
-            for y in list(range(min(margin_px, h))) + list(range(max(0, h - margin_px), h)):
-                border_pixels.append(img.getpixel((x, y)))
-        for y in range(h):
-            for x in list(range(min(margin_px, w))) + list(range(max(0, w - margin_px), w)):
-                border_pixels.append(img.getpixel((x, y)))
+        # 4. Substitui só a página editada no PDF
+        doc = fitz.open(str(pdf_path))
 
-        if border_pixels:
-            r = sum(p[0] for p in border_pixels) / len(border_pixels) / 255
-            g = sum(p[1] for p in border_pixels) / len(border_pixels) / 255
-            b = sum(p[2] for p in border_pixels) / len(border_pixels) / 255
-            fill_color = (r, g, b)
-        else:
-            fill_color = (1.0, 1.0, 1.0)
-
-        # Redaction — remove conteudo SEM converter pagina pra imagem
-        page.add_redact_annot(erase_rect, fill=fill_color)
         try:
-            page.apply_redactions(
-                images=fitz.PDF_REDACT_IMAGE_REMOVE,
-                graphics=fitz.PDF_REDACT_LINE_NONE,
-            )
+            import cv2
+            rgb = cv2.cvtColor(img_result, cv2.COLOR_BGR2RGB)
         except Exception:
-            try:
-                page.apply_redactions(images=fitz.PDF_REDACT_IMAGE_REMOVE)
-            except Exception:
-                page.apply_redactions()
+            rgb = img_result[:, :, ::-1]
+
+        pil_result = PILImage.fromarray(rgb)
+        tmp_page_pdf = str(
+            session_path(req.session_id) /
+            f"tmp_erase_{req.page}_{uuid.uuid4().hex[:8]}.pdf"
+        )
+        pil_result.save(tmp_page_pdf, format="PDF", resolution=DPI)
+
+        tmp_doc = fitz.open(tmp_page_pdf)
+        doc.delete_page(req.page)
+        doc.insert_pdf(tmp_doc, from_page=0, to_page=0, start_at=req.page)
+        tmp_doc.close()
+        os.remove(tmp_page_pdf)
 
         tmp_pdf = str(pdf_path) + ".tmp"
         doc.save(tmp_pdf, garbage=4, deflate=True)
         doc.close()
         os.replace(tmp_pdf, str(pdf_path))
 
-        return {"ok": True, "message": "Área apagada. Texto preservado."}
+        return {"ok": True, "message": "Área apagada com inpainting. Fundo reconstruído."}
 
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(500, f"Erro ao apagar: {e}")
 
