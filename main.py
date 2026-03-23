@@ -498,23 +498,5 @@ def _inject_text_layer(
                         print(f"[inject_text] span error: {e}")
                         continue
 
-            from fastapi import Request
-
-            @app.post("/create-subscription")
-            async def create_subscription(request: Request):
-                data = await request.json()
-
-                email = data.get("email")
-                plan = data.get("plan")
-
-                if not email:
-                    raise HTTPException(400, "Email é obrigatório")
-
-            # 👉 TEMPORÁRIO (teste)
-                return {
-                 "init_point": "https://www.mercadopago.com.br"
-                }
-
-
     except Exception as e:
         print(f"[_inject_text_layer] p{page_idx} error: {e}")
