@@ -679,6 +679,141 @@ async def split_range(
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# ADD TEXT — modo lápis
+# ─────────────────────────────────────────────────────────────────────────────
+
+class AddTextRequest(BaseModel):
+    session_id: str
+    page:       int
+    x_pct:      float
+    y_pct:      float
+    w_pct:      float
+    h_pct:      float
+    text:       str
+    font_name:  str  = "arial"
+    font_size:  int  = 16
+    bold:       bool = False
+    italic:     bool = False
+    color_hex:  str  = "#000000"
+
+
+@app.post("/add-text")
+async def add_text(req: AddTextRequest):
+    """
+    Adiciona texto em qualquer area da pagina (modo lapis).
+    Usa inpainting_engine.smart_replace_text para renderizar
+    com a fonte, tamanho, negrito, italico e cor escolhidos.
+    Funciona tanto em PDFs nativos quanto em paginas que viraram imagem.
+    """
+    pdf_path = get_pdf_path(req.session_id)
+    if not pdf_path.exists():
+        raise HTTPException(404, "Sessao nao encontrada.")
+
+    try:
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent))
+        from core.inpainting_engine import pdf_page_to_image, image_to_pdf, pdf_all_pages_to_images
+        import fitz
+        from PIL import Image as PILImage
+
+        DPI = 200
+
+        # Converte hex para BGR
+        hex_c = req.color_hex.lstrip("#")
+        r_c = int(hex_c[0:2], 16)
+        g_c = int(hex_c[2:4], 16)
+        b_c = int(hex_c[4:6], 16)
+        color_bgr = (b_c, g_c, r_c)
+
+        # Monta hint de fonte com bold/italic
+        font_hint = req.font_name
+        if req.bold and req.italic:
+            font_hint += "bi"
+        elif req.bold:
+            font_hint += "bd"
+        elif req.italic:
+            font_hint += "i"
+
+        # Carrega todas as paginas como imagem
+        all_imgs = pdf_all_pages_to_images(str(pdf_path), dpi=DPI)
+        img = all_imgs[req.page].copy()
+        ih, iw = img.shape[:2]
+
+        # Converte % para pixels
+        x1 = max(0,  int(req.x_pct / 100 * iw))
+        y1 = max(0,  int(req.y_pct / 100 * ih))
+        x2 = min(iw, int((req.x_pct + req.w_pct) / 100 * iw))
+        y2 = min(ih, int((req.y_pct + req.h_pct) / 100 * ih))
+
+        if x2 <= x1 or y2 <= y1:
+            raise HTTPException(400, "Area invalida.")
+
+        # Tamanho da fonte em pixels (DPI 200 vs 72 padrao PDF)
+        font_size_px = max(8, int(req.font_size * DPI / 72))
+
+        # Insere texto diretamente (sem apagar area — modo adicionar)
+        from core.inpainting_engine import smart_replace_text
+        img = smart_replace_text(
+            img, req.text, x1, y1, x2, y2,
+            original_text="",
+            fontname_hint=font_hint,
+            font_size_hint=font_size_px,
+            color_bgr=color_bgr,
+            align="left",
+        )
+        all_imgs[req.page] = img
+
+        # Salva PDF com imagens
+        tmp = str(pdf_path) + ".tmp"
+        image_to_pdf(all_imgs, tmp, dpi=DPI)
+        os.replace(tmp, str(pdf_path))
+
+        return {"ok": True}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(500, f"Erro ao adicionar texto: {e}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SNAPSHOT / UNDO — Ctrl+Z
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.post("/snapshot/{session_id}")
+async def create_snapshot(session_id: str):
+    """Salva snapshot do PDF atual para permitir Ctrl+Z."""
+    pdf_path = get_pdf_path(session_id)
+    if not pdf_path.exists():
+        raise HTTPException(404, "Sessao nao encontrada.")
+    try:
+        snapshot_id  = uuid.uuid4().hex[:12]
+        snap_dir     = session_path(session_id) / "snapshots"
+        snap_dir.mkdir(exist_ok=True)
+        snap_path    = snap_dir / f"{snapshot_id}.pdf"
+        shutil.copy2(str(pdf_path), str(snap_path))
+        return {"snapshot_id": snapshot_id}
+    except Exception as e:
+        raise HTTPException(500, f"Erro ao criar snapshot: {e}")
+
+
+@app.post("/undo/{session_id}/{snapshot_id}")
+async def undo(session_id: str, snapshot_id: str):
+    """Restaura PDF para o estado do snapshot (Ctrl+Z)."""
+    pdf_path  = get_pdf_path(session_id)
+    snap_path = session_path(session_id) / "snapshots" / f"{snapshot_id}.pdf"
+    if not snap_path.exists():
+        raise HTTPException(404, "Snapshot nao encontrado.")
+    try:
+        shutil.copy2(str(snap_path), str(pdf_path))
+        # Remove snapshot usado
+        snap_path.unlink(missing_ok=True)
+        return {"ok": True}
+    except Exception as e:
+        raise HTTPException(500, f"Erro ao desfazer: {e}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # HELPER: camada de texto invisivel
 # ─────────────────────────────────────────────────────────────────────────────
 
