@@ -701,71 +701,67 @@ class AddTextRequest(BaseModel):
 async def add_text(req: AddTextRequest):
     """
     Adiciona texto em qualquer area da pagina (modo lapis).
-    Usa inpainting_engine.smart_replace_text para renderizar
-    com a fonte, tamanho, negrito, italico e cor escolhidos.
-    Funciona tanto em PDFs nativos quanto em paginas que viraram imagem.
+    Usa fitz (PyMuPDF) para inserir texto vetorial diretamente no PDF,
+    garantindo que fonte, tamanho, cor e posição fiquem exatos.
     """
     pdf_path = get_pdf_path(req.session_id)
     if not pdf_path.exists():
         raise HTTPException(404, "Sessao nao encontrada.")
 
     try:
-        import sys
-        sys.path.insert(0, str(Path(__file__).parent))
-        from core.inpainting_engine import pdf_page_to_image, image_to_pdf, pdf_all_pages_to_images
         import fitz
-        from PIL import Image as PILImage
 
-        DPI = 200
+        doc  = fitz.open(str(pdf_path))
+        page = doc[req.page]
+        pw   = page.rect.width   # largura da página em pontos PDF
+        ph   = page.rect.height  # altura da página em pontos PDF
 
-        # Converte hex para BGR
+        # Converte % → coordenadas em pontos PDF
+        x = req.x_pct / 100.0 * pw
+        y = req.y_pct / 100.0 * ph
+
+        # Converte hex para RGB 0-1
         hex_c = req.color_hex.lstrip("#")
-        r_c = int(hex_c[0:2], 16)
-        g_c = int(hex_c[2:4], 16)
-        b_c = int(hex_c[4:6], 16)
-        color_bgr = (b_c, g_c, r_c)
+        r_c = int(hex_c[0:2], 16) / 255.0
+        g_c = int(hex_c[2:4], 16) / 255.0
+        b_c = int(hex_c[4:6], 16) / 255.0
 
-        # Monta hint de fonte com bold/italic
-        font_hint = req.font_name
+        # Mapeia nome de fonte para nome built-in do fitz
+        FONT_MAP = {
+            "arial":   ("helv",   "hebo",   "heit",   "hebi"),   # Helvetica
+            "times":   ("tiro",   "tibd",   "tiit",   "tibi"),   # Times
+            "courier": ("cour",   "cobo",   "coit",   "cobi"),   # Courier
+            "calibri": ("helv",   "hebo",   "heit",   "hebi"),   # fallback Helvetica
+            "verdana": ("helv",   "hebo",   "heit",   "hebi"),   # fallback Helvetica
+        }
+        # índice: 0=normal, 1=bold, 2=italic, 3=bold+italic
+        font_variants = FONT_MAP.get(req.font_name.lower(), FONT_MAP["arial"])
         if req.bold and req.italic:
-            font_hint += "bi"
+            fontname = font_variants[3]
         elif req.bold:
-            font_hint += "bd"
+            fontname = font_variants[1]
         elif req.italic:
-            font_hint += "i"
+            fontname = font_variants[2]
+        else:
+            fontname = font_variants[0]
 
-        # Carrega todas as paginas como imagem
-        all_imgs = pdf_all_pages_to_images(str(pdf_path), dpi=DPI)
-        img = all_imgs[req.page].copy()
-        ih, iw = img.shape[:2]
+        # font_size já vem em pontos do frontend (ex: 16)
+        font_size = max(6.0, float(req.font_size))
 
-        # Converte % para pixels
-        x1 = max(0,  int(req.x_pct / 100 * iw))
-        y1 = max(0,  int(req.y_pct / 100 * ih))
-        x2 = min(iw, int((req.x_pct + req.w_pct) / 100 * iw))
-        y2 = min(ih, int((req.y_pct + req.h_pct) / 100 * ih))
-
-        if x2 <= x1 or y2 <= y1:
-            raise HTTPException(400, "Area invalida.")
-
-        # Tamanho da fonte em pixels (DPI 200 vs 72 padrao PDF)
-        font_size_px = max(8, int(req.font_size * DPI / 72))
-
-        # Insere texto diretamente (sem apagar area — modo adicionar)
-        from core.inpainting_engine import smart_replace_text
-        img = smart_replace_text(
-            img, req.text, x1, y1, x2, y2,
-            original_text="",
-            fontname_hint=font_hint,
-            font_size_hint=font_size_px,
-            color_bgr=color_bgr,
-            align="left",
+        # Insere o texto — fitz usa baseline (x, y+font_size para compensar)
+        # render_mode=0 = texto visível normal
+        page.insert_text(
+            (x, y + font_size),   # ponto de inserção = baseline
+            req.text,
+            fontname=fontname,
+            fontsize=font_size,
+            color=(r_c, g_c, b_c),
+            render_mode=0,
         )
-        all_imgs[req.page] = img
 
-        # Salva PDF com imagens
         tmp = str(pdf_path) + ".tmp"
-        image_to_pdf(all_imgs, tmp, dpi=DPI)
+        doc.save(tmp, garbage=4, deflate=True)
+        doc.close()
         os.replace(tmp, str(pdf_path))
 
         return {"ok": True}
